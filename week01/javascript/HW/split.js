@@ -24,7 +24,7 @@ function strSplit(str, splitChar) {
 		splittedArr[splittedArr.length] = spacer;
 	}
   //
-  console.log(splittedArr);
+  console.info(splittedArr);
 	return splittedArr;
 }
 

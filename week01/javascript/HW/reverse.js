@@ -17,4 +17,4 @@ function reverseStr(str) {
 	return lastChar + reverseStr(tempStr);
 }
 
-reverseStr("EinarIsMcgyver");
+reverseStr("EinarIsMcgyver");rev
