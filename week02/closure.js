@@ -61,7 +61,7 @@ f2();
 f2.call(obj); //bind this to function
 f2.apply(obj,[]); //the array stands for the arguments part
 
-//binding is saving the this 
+//binding is saving the this
 var f3 = f2.bind(obj);
 f3();
 
@@ -71,3 +71,58 @@ function myCaller(aFunc){
 }
 
 myCaller(obj.f);
+
+
+function sayHello(name) {
+  var text = 'Hello ' + name;
+  var say = function() { console.log(text); }
+  say();
+}
+sayHello('Joe');
+
+//a closure is a stack frame which is allocated when a function starts its execution,
+//and not freed after the function returns (as if a 'stack frame' were allocated on the heap rather than the stack!).
+
+
+function buildList(list) {
+    var result = [];
+    for (var i = 0; i < list.length; i++) {
+        var item = 'item' + i;
+        result.push( function() {console.log(item + ' ' + list[i])} );
+    }
+    return result;
+}
+
+function testList() {
+    var fnlist = buildList([1,2,3]);
+    // Using j only to help prevent confusion -- could use i.
+    for (var j = 0; j < fnlist.length; j++) {
+        fnlist[j]();
+    }
+}
+
+ testList() //logs "item2 undefined" 3 times
+
+
+//each call creates a separate closure for the local variables
+//A closure in JavaScript is like keeping a copy of all the local variables, just as they were when a function exited.
+/*
+A new set of local variables is kept every time a function with a closure is called
+(given that the function contains a function declaration inside it, and a reference to that inside function
+ is either returned or an external reference is kept for it in some way).
+*/
+
+function makeGame (){
+  var board = [];
+
+  function gameInit(){
+    for(var i =0; i < 9; ++i){
+      board[i] = 0;
+    }
+  }
+  return gameInit;
+}
+
+var myGame = makeGame();
+
+myGame();

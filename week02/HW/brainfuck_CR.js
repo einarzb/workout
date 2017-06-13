@@ -48,15 +48,12 @@ var operation = {
         }
      }
  //end of object
-
- console.log(operation.'>'());
-
 //as long as I run through the string
-while(next < str.length)
-
-//find the fit operation and invoke its function
+while(next < str.length){
   operation[str[next++]]();
-  return newS;
+}
+
+return newS;
 }
 
 //invoke
