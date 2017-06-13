@@ -1,34 +1,48 @@
-function action1(data){
-      console.log(data);
-};
 
-function action2(data){
-      if(data != "2222") {
-        throw "Error in 2"; //the text would be CATCH argument
-      } else {
+function action1(data) {
+    console.log(data);
+    return 1;
+}
+function action2(data) {
+    if (data != "2222") {
+        throw "error in action2";
+    }
+    else {
         console.log(data);
-      } //if error it wont get here and won't continue to third action
-      console.log("end of action 2");
-};
+        return 2;
+    }
+}
+function action3(data) {
+    if (data != "3333") {
+        throw "error in action3";
+    }
+    else {
+        console.log(data);
+        return 3;
+    }
+}
 
-function action3(data){
-      console.log(data);
-};
+function action4(data) {
+    console.log(data);
+}
 
-(function doMe(){
-  try {
-        action1("1111");
-        action2("222");
-        action3("3333");
-      }
+function doSomething() {
+    var x1 = action1("1111");
+    var x2 = action2("2222");
+    var x3 = action3("3333");
+    return (x1 + x2 + x3);
+}
 
-  catch(error){
-    console.log('error '+ error);
-  }
+function top() {
+    try {
+        return doSomething();
+    }
+    catch (e) {
+        console.log(e);
+    }
+    finally {
+        action4("4444");
+    }
+}
 
-  console.log("code would run here even if theres an error on the try/catch block");
-})();
-
-/* (FUNCTION(){CODE CODE CODE})();
- iife (SELF INVOKED FUNCTION)
-*/
+console.log(top());
