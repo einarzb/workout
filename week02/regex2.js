@@ -1,6 +1,14 @@
 var re = /(ab)+/g;
 var re1 = /abcd/g;
+var re2 = /<[A-Za-z][A-Za-z0-9]*> /
 
+/*
+dicitonary:
+? =>  attempt to match the preceding token zero times or once (optional).
+
+
+
+*/
 var str2 = "ab______________abab_______ab___";
 
 var test = re1.exec(str2);
