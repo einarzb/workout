@@ -5,27 +5,27 @@
     <title>Registration Form</title>
   </head>
   <body style="text-align:center;font-family:arial;font-size:1em;">
-    <form action="http://wpwith.us/experis/form/" method="post">
+    <form autocomplete="on" action="http://wpwith.us/experis/form/" method="post">
         <h2>Registration Form</h2>
         <hr width="20%">
 
         <label for="fullName"> Full Name:
-          <input id="fullName" autofocus="on" type="text" minlength="4" maxlength="32" autocomplete="on" name="fullName" placeholder="please fill in full name" required>
+          <input id="fullName" autofocus="on" type="text" minlength="4" maxlength="32"  name="fullName" placeholder="please fill in full name" required>
         </label>
         <br><br>
 
         <label for="password"> Password:
-          <input id="password" type="password" autocomplete="on" minlength="8" maxlength="16" name="password" placeholder="please fill in password" required>
+          <input id="password" type="password" minlength="8" maxlength="16" name="password" placeholder="please fill in password" required>
         </label>
         <br><br>
 
         <label for="email"> Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input id="email" type="email" autocomplete="on" minlength="8" maxlength="16" name="email" placeholder="please fill in email address" required>
+          <input id="email" type="email" minlength="8" maxlength="16" name="email" placeholder="please fill in email address" required>
         </label>
         <br><br>
 
         <label for="phone"> Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input id="phone" type="tel" autocomplete="on" minlength="7" maxlength="10" name="phone" placeholder="please fill in your cellular" >
+          <input id="phone" type="tel" minlength="7" maxlength="10" name="phone" placeholder="please fill in your cellular" >
         </label>
         <br><br>
 
@@ -34,11 +34,10 @@
         </label>
         <br><br>
 
-        <label for="gender"> Gender:
-          <input type="radio" name="gender" value="female">Female
-          <input type="radio" name="gender" value="male">Male
-          <input type="radio" name="gender" value="other">Other
-        </label>
+        Gender:
+            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="other">Other
         <br><br>
 
         <label style="text-align:left;" for="about">About Me <br>
