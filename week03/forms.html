@@ -23,6 +23,10 @@
           <!-- input must have name -->
           <br>
 
+          <!-- The div element, also known as a division element, is a general purpose container for other elements. -->
+
+
+
     			Last Name:
           <input type="text" minlength="2" maxlength="44" required name="lastname">
           <br>
@@ -32,7 +36,10 @@
            <br>
     			do you want to go home?: <br><br>
 
-          <!-- boolean radio btns must share same name -->
+          <!-- All related radio buttons should have the same name attribute. -->
+          <!-- You can use radio buttons for questions where you want the user to only give you one answer.
+You can set a checkbox or radio button to be checked by default using the checked attribute.
+         -->
 
     			<label for="homeok">
             <input type="radio" value="ok" checked id="OK" name="homeok"> Yes
@@ -51,6 +58,9 @@
   </select>
   <br><br>
   <input type="hidden" name="clientid" value="eujc98494mnjk">
+  <!-- Forms commonly use checkboxes for questions that may have more than one answer.
+All related checkbox inputs should have the same name attribute.
+ -->
         <input type="checkbox" checked name="agree" value="ok">do you agree
     			<input type="submit" value="Send">
           <!-- get is inside url

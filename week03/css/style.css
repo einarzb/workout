@@ -1,0 +1,12 @@
+body{
+  direction: ltr;
+  text-align: justify;   /*blocked from 2 sides like in paper*/
+  text-align: end; /*effected by direction chosen*/
+  text-align: start; /*effected by direction chosen*/
+}
+
+/*
+An element's padding controls the amount of space between the element and its border.
+An element's margin controls the amount of space between an element's border and surrounding elements.
+When you increase an element margin, it will increase the distance between its border and surrounding elements.
+*/
