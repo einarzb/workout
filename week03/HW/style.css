@@ -55,12 +55,12 @@ img{
   border: 2px solid #000;
 }
 
+/*buttons*/
 .toolbar {
-  display: block;
   list-style: none;
   margin:0;
   padding:0;
-  width:300px;
+  width:600px;
 }
 
 ul{
@@ -71,10 +71,11 @@ li {
   text-align: center;
   margin: 5px 5px 15px 0px;
   font-size: 15px;
+  display: inline-block; /*inline blocks keeps on to his margin*/
 }
+
 li a {
   padding:5px;
-  display: block;
   border:1px solid grey;
   border-radius: 25px;
   background-color: white;
@@ -84,14 +85,12 @@ li a {
 
 li a:hover {
   padding:5px;
-  display: block;
-  border:1px solid grey;
+  border:3px solid grey;
   border-radius: 25px;
   background-color: black;
   text-decoration: none;
   color:#fff;
 }
-
 
 /*accordion*/
 .accordion {
