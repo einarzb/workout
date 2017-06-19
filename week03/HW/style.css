@@ -15,8 +15,8 @@ h2, h3, h4{
   color:#000066;
 }
 
-table{
-  width: 300px;
+table {
+  width: 500px;
 }
 td {
   text-align: left;
@@ -25,4 +25,8 @@ td {
 
 hr{
   width:95%;
+}
+
+img{
+  text-align: center;
 }
