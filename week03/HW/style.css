@@ -30,3 +30,13 @@ hr{
 img{
   text-align: center;
 }
+
+#pan-table td {
+  background-color: pink;
+}
+
+
+#pan-table thead td {
+  background-color: orange;
+  text-align: center;
+}
