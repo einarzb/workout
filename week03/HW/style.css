@@ -1,5 +1,3 @@
-
-
 body{
   font-family: 'Arial';
   background-color:	#FFFFE0;
@@ -9,8 +7,8 @@ body{
   margin:0px;
 }
 h1{
-  margin: 0px 0px 50px 0px;
-  padding:0.03em 0.4em;
+  margin: -10px -10px 50px -10px;
+  padding:0.05em 0.4em;
   color:#fff;
   background-color: green;
   font-size: 64px;
@@ -42,14 +40,14 @@ img{
   text-align: center;
 }
 
-/*.main h2, h3, h4, p, strong, table, th {
-margin-left: 5px;
-}*/
+.main, h1 div {
+    margin: auto;
+    width:960px;
+}
 
 .main {
-margin: auto;
-width:960px;
-background-color: pink;
+  background-color: pink;
+  padding:10px 10px;
 }
 
 .strongTxt {
