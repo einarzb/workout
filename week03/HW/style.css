@@ -35,7 +35,7 @@ th, td {
 }
 
 hr{
-  width:95%;
+  width:100%;
 }
 
 img{
@@ -47,7 +47,9 @@ margin-left: 5px;
 }*/
 
 .main {
-margin-left:10px;
+margin: auto;
+width:960px;
+background-color: pink;
 }
 
 .strongTxt {
@@ -56,5 +58,8 @@ margin-left:10px;
 }
 
 .headerImg{
+  padding:10px;
+  background-color: #fff;
   border:3px gray solid;
+  margin:10px;
 }
