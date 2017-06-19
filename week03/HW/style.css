@@ -1,6 +1,6 @@
 body{
   font-family: 'Arial';
-  background-color:	#FFFFE0;
+  background-color:green;
   color:brown;
   font-size: 16px;
   padding:0px;
@@ -10,8 +10,12 @@ body{
 h1{
   margin: -10px -20px 50px -20px;
   padding:0.05em 0.4em;
-  color:#fff;
-  background-color: green;
+  color:purple;
+  background-image: url(images/pan.png);
+  background-color: red;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
   font-size: 64px;
 }
 
@@ -21,16 +25,24 @@ h2 {
   color:#000066;
 }
 
- h3, h4{
+h3 {
+  color:#000066;
+}
+
+h4{
   color:#000066;
 }
 
 table {
   width: 500px;
+   border:1px solid #666;
+   border-collapse:collapse;
 }
+
 th, td {
   text-align: left;
   padding:4px;
+  border:1px solid #666;
 }
 
 hr{
@@ -39,6 +51,29 @@ hr{
 
 img{
   text-align: center;
+  outline:10px solid #ABC;
+  border: 2px solid #000;
+}
+
+/*accordion*/
+.accordion {
+  padding:0px;
+}
+
+.accordion div{
+  padding:0px;
+  display: none;
+}
+
+.accordion:hover div {
+  display: block;
+}
+
+/*custom*/
+
+.strongTxt {
+  font-size:1.2em;
+  font-weight: bold;
 }
 
 .main, h1 div {
@@ -47,22 +82,13 @@ img{
 }
 
 .main {
-  background-color: pink;
-  background-repeat: repeat;
-  background-image:url("images/birds.png");
-  background-blend-mode:hard-light;
-  background-position: center top;
+  background-color:#e0be6a;
   padding:10px 20px;
-}
-
-.strongTxt {
-  font-size:1.2em;
-  font-weight: bold;
 }
 
 .headerImg{
   padding:10px;
-  background-color: #fff;
-  border:3px gray solid;
   margin:10px;
+  outline:10px solid #ABC;
+  border: 2px solid #000;
 }
