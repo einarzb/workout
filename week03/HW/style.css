@@ -3,15 +3,23 @@ body{
   background-color:	#FFFFE0;
   color:brown;
   font-size: 16px;
+  padding-left: 10px;
 }
 h1{
+  margin: 0px 0px 50px 0px;
+  padding:15px 30px;
   color:#fff;
   background-color: green;
-  padding:5px;
   font-size: 64px;
 }
 
-h2, h3, h4{
+h2 {
+  border-top: 1px solid #ccc;
+  padding-top:5px;
+  color:#000066;
+}
+
+ h3, h4{
   color:#000066;
 }
 
@@ -31,12 +39,18 @@ img{
   text-align: center;
 }
 
-#pan-table td {
-  background-color: pink;
+.header {
+  margin:-10px -10px 0px -20px;
+}
+.main h2, h3, h4, p, strong, table, th {
+margin-left: 5px;
 }
 
+.strongTxt {
+  font-size:1.2em;
+  font-weight: bold;
+}
 
-#pan-table thead td {
-  background-color: orange;
-  text-align: center;
+.headerImg{
+  border:3px gray solid;
 }
