@@ -27,6 +27,7 @@ img{
     background-color: #F58521;
     margin: auto;
     width:960px;
+    min-width: 600px;
     padding:10px 0px 10px 20px;
 }
 
@@ -41,16 +42,14 @@ img{
   content:" "; /*empty content*/
 }
 
-p{
-  padding-left: 10px;
-}
-
 .item{
   border: 2px solid black;
   margin:10px 5px 0px 2px;
-  background-color:#fff;
+  padding-left:5px;
+  background-color:rgba(255,255,255,0.9);
   width:32%;
-  height:400px;
+  min-height:400px;
+  max-height: 300px;
   float:left;
   box-sizing: border-box;
   border-radius:4px;
