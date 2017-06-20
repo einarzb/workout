@@ -34,9 +34,25 @@ h4{
 }
 
 table {
-  width: 300px;
+   width: 200px;
    border:1px solid #666;
    border-collapse:collapse;
+   display:inline-block;
+}
+
+.imageTable {
+  display:inline-block;
+  margin-right:20px;
+
+}
+
+.toastTable{
+  width:345px;
+}
+
+.inliner {
+  margin-left:15px;
+  padding-right:20px;
 }
 
 th, td {
@@ -57,11 +73,12 @@ img{
 
 /*buttons*/
 .toolbar {
-  text-align: center;
+  text-align: left;
   list-style: none;
-  margin:0;
-  padding:0;
-  width:600px;
+  margin-top:-50px;
+  padding-top:5px;
+  width:960px;
+  height:50px;
 }
 
 ul{
@@ -78,7 +95,7 @@ li {
 li a {
   padding:5px;
   border:1px solid grey;
-  border-radius: 25px;
+  border-radius: 10px;
   background-color: white;
   text-decoration: none;
   color:red;
