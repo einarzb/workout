@@ -1,6 +1,8 @@
 
 //execute function as page loads (like document ready)
 window.onload = function() {
+			// 	localStorage.setItem('myCat', 'Tom');
+				// console.log(localStorage);
 				//returns an HTMLCollection of elements with the given tag name in the order they appear
 					var buttons = document.getElementsByTagName('button');
 					//if buttons exist in the DOM
@@ -30,7 +32,7 @@ window.onload = function() {
 
 					for (var i=0; i<inputs.length; ++i) {
 						var inp = inputs[i];
-						//Execute a function when a user changes the input element:
+						//Execute a JavaScript when a user changes the content of an input field
 						inp.onchange = function() {
 							console.log(this.name+' = '+this.value);
 						};
