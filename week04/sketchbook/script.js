@@ -52,13 +52,10 @@ window.onload = function () {
      return createHandlers(shape);
   }
 
-  function handlerShow(){
-    alert("shitititititi")
-  }
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
-  //make squares appear only when div is pressed
 
+//creates 4 handlers
     function createHandlers(shape){
       var handlers = [];
       for (var i = 0; i < 5; i++) {
@@ -70,6 +67,18 @@ window.onload = function () {
             shape.appendChild(handlers);
           }
           return shape;
+        }
+//refactor with Andrey or Assaf
+  //make squares appear only when div is pressed
+        function handlerShow(){
+          var showHandler = document.querySelectorAll('.handlers1, .handlers2, .handlers3, .handlers4');
+          for (var i = 0; i < showHandler.length; i++) {
+            if (showHandler[i].style.display === "block") {
+                showHandler[i].style.display = "none";
+            } else {
+                showHandler[i].style.display = "block"
+            }
+          }
         }
 
 // *************************DELETE SHAPES PART ***********************************************
@@ -96,19 +105,19 @@ window.onload = function () {
     }
   }
 
-  function makePink(){
-      alert("pink me");
-  }
-
-  function makeBlack(){
-      alert("black me");
-  }
-
-  function makeRed(){
-      alert("red me");
-  }
-
-  function makeGreen(){
-      alert("green me");
-  }
+  // function makePink(){
+  //     alert("pink me");
+  // }
+  //
+  // function makeBlack(){
+  //     alert("black me");
+  // }
+  //
+  // function makeRed(){
+  //     alert("red me");
+  // }
+  //
+  // function makeGreen(){
+  //     alert("green me");
+  // }
 }
