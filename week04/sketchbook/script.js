@@ -37,15 +37,23 @@ window.onload = function () {
     return ((Math.random() * (window.innerHeight)/2 + "px"));
   }
 
-  function createRandomShape (){
+  function createRandomShape () {
+    //create new shape
     var shape = document.createElement("div");
+    //insert event listener to the shape
+    shape.addEventListener("click", handlerShow);
+    //styling of shape
     shape.style.width = randomSize();
     shape.style.height = randomSize();
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
-    //return shape;
+    // return shape;
      return createHandlers(shape);
+  }
+
+  function handlerShow(){
+    alert("shitititititi")
   }
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
@@ -81,10 +89,10 @@ window.onload = function () {
 
   function colorChange(){
     var pallete = document.getElementById('pallete');
-    if (pallete.style.display === "none") {
-        pallete.style.display = "block";
+    if (pallete.style.display === "block") {
+        pallete.style.display = "none";
     } else {
-      pallete.style.display = "none"
+      pallete.style.display = "block"
     }
   }
 
