@@ -9,6 +9,7 @@ h4 {
   color:#fff;
   text-align: center;
 }
+
 .header {
   padding:4px;
   width:960px;
@@ -20,11 +21,12 @@ h4 {
 
 .toolbar {
   width:30%;
+  z-index: 9999;
   display: inline-block;
   border-top-left-radius:8px;
   border-top-right-radius:8px;
   padding:1px;
-  margin:0px 50px 0px 320px;
+  margin:0px 0px -5px 0px;
   background-color: rgba(255,255,255,0.5);
 }
 
@@ -35,7 +37,7 @@ h4 {
   min-width: 80px;
   height:2em;
   padding:2px;
-  margin:3px;
+  margin:0px 3px 0px 3px;
   border-top-left-radius:8px;
   border-top-right-radius:8px;
   background-color: rgba(255, 0, 0, 0.5);
@@ -47,7 +49,7 @@ h4 {
   min-width: 80px;
   height:2em;
   padding:2px;
-  margin:3px;
+  margin:0px 3px 0px 3px;
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -126,6 +128,12 @@ h4 {
   border:1px solid #000;
 }
 
+.selected .handlers4,
+.selected .handlers3,
+.selected .handlers2,
+.selected .handlers1 {
+  display: block;
+}
 
 .ovalShape {
   border-radius: 50%;

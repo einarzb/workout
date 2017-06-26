@@ -71,7 +71,8 @@ window.onload = function () {
 //refactor with Andrey or Assaf
   //make squares appear only when div is pressed
         function handlerShow(){
-          var showHandler = document.querySelectorAll('.handlers1, .handlers2, .handlers3, .handlers4');
+          var showHandler = document.getElementsByClassName('selected')
+          // var showHandler = document.querySelectorAll('.handlers1, .handlers2, .handlers3, .handlers4');
           for (var i = 0; i < showHandler.length; i++) {
             if (showHandler[i].style.display === "block") {
                 showHandler[i].style.display = "none";
