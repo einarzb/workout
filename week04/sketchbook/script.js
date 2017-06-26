@@ -51,16 +51,17 @@ window.onload = function () {
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
   //make squares appear only when div is pressed
-  var allShapes = document.getElementById("div");
-  allShapes.addEventListener("click", createHandlers);
+  // var allShapes = document.getElementById("div");
+  // allShapes.addEventListener("click", createHandlers);
 
     function createHandlers(shape){
       var handlers = [];
-      for (var i = 0; i < 4; i++) {
-          //create 4 handlers
+      for (var i = 0; i < 5; i++) {
+        console.log(handlers);
+           //create 4 handlers
             handlers = document.createElement("div");
             //style them
-            handlers.classList.add("handlers");
+            handlers.classList.add("handlers" + i);
             //append them to shape
             shape.appendChild(handlers);
           }

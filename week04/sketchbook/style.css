@@ -18,7 +18,6 @@ h4 {
 }
 
 .toolbar {
-
   width:30%;
   display: inline-block;
   border-radius: 8px;
@@ -50,9 +49,11 @@ h4 {
 }
 
 .top-nav{
-  top:0px;
+  display: inline-block;
+  border:1px solid red;
+  width:200px;
   right:200px;
-}
+  margin-left:200px}
 
 #canvas {
   position: relative;
@@ -76,9 +77,43 @@ h4 {
   border:1px solid black;
 }
 
+/*left top corner*/
 .handlers1{
+  position:relative;
+  margin-left:-25px;
+  margin-top:-25px;
+  width:15px;
+  height:15px;
+  border:1px solid black;
+}
+
+.handlers2{
+  position:relative;
+  margin-right:-25px;
+  margin-top:-25px;
+  width:15px;
+  height:15px;
   border:1px solid red;
 }
+
+.handlers3{
+  position:relative;
+  margin-left:25px;
+  margin-top:-25px;
+  width:15px;
+  height:15px;
+  border:1px solid blue;
+}
+
+.handlers4{
+  position:relative;
+  margin-left:25px;
+  margin-bottom:-25px;
+  width:15px;
+  height:15px;
+  border:1px solid green;
+}
+
 
 .ovalShape {
   border-radius: 50%;
