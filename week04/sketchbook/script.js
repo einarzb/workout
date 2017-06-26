@@ -77,8 +77,7 @@ window.onload = function () {
 
 // *************************COLOR CHANGES PART ***********************************************
   var colorChangeBtn = document.getElementById("color");
-  colorChangeBtn.addEventListener("click", colorChange);
-  // colorChangeBtn.addEventListener("click", colorChangeBack);
+    colorChangeBtn.addEventListener("click", colorChange);
 
   function colorChange(){
     var pallete = document.getElementById('pallete');
