@@ -1,6 +1,21 @@
 
 window.onload = function () {
 
+  var swapMenuBtn = document.getElementById("admin");
+  swapMenuBtn.addEventListener("click", swapMenu);
+
+  function swapMenu(){
+    var adminMenu = document.getElementById('canvas');
+        if(adminMenu.style.backgroundColor === "gray") {
+           adminMenu.style.backgroundColor = "pink";
+        } else {
+          adminMenu.style.backgroundColor = "gray"
+        }
+  }
+
+  var swapMenuBtn = document.getElementById("design");
+  swapMenuBtn.addEventListener("click", swapMenu);
+
   // *************************CREATE SHAPES PART ***********************************************
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
