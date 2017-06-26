@@ -2,7 +2,6 @@
 window.onload = function () {
 
   // *************************CREATE SHAPES PART ***********************************************
-
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
 
@@ -21,9 +20,9 @@ window.onload = function () {
     document.getElementById('canvas').appendChild(shape);
   }
 
-  //random color and size
+  //random color size and position
   function randomSize() {
-    return (Math.round(Math.random()*200) + 50) + "px";
+    return (Math.round(Math.random()*100) + 50) + "px";
   }
 
   function randomColor() {
@@ -45,22 +44,19 @@ window.onload = function () {
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
-    // return shape;
-    return createHandlers(shape);
+    //return shape;
+     return createHandlers(shape);
   }
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
   //make squares appear only when div is pressed
-  // var allShapes = document.getElementById("div");
-  // allShapes.addEventListener("click", createHandlers);
 
     function createHandlers(shape){
       var handlers = [];
       for (var i = 0; i < 5; i++) {
-        console.log(handlers);
            //create 4 handlers
             handlers = document.createElement("div");
-            //style them
+            //style them each i(1-4) is different corner
             handlers.classList.add("handlers" + i);
             //append them to shape
             shape.appendChild(handlers);
@@ -84,14 +80,14 @@ window.onload = function () {
   colorChangeBtn.addEventListener("click", colorChange);
   // colorChangeBtn.addEventListener("click", colorChangeBack);
 
-//CHANGE IT TO TOGGLE
   function colorChange(){
-    document.getElementById('pallete').style.display = "block";
+    var pallete = document.getElementById('pallete');
+    if (pallete.style.display === "none") {
+        pallete.style.display = "block";
+    } else {
+      pallete.style.display = "none"
+    }
   }
-
-  // function colorChangeBack(){
-  //   document.getElementById('pallete').style.display = "none";
-  // }
 
   function makePink(){
       alert("pink me");

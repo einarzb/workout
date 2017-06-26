@@ -27,6 +27,7 @@ h4 {
 }
 
 .toolbar > button {
+  color:#fff;
   flex:auto;
   text-align: center;
   min-width: 80px;
@@ -35,28 +36,6 @@ h4 {
   margin:3px;
   border-radius: 4px;
   background-color: rgba(255, 0, 0, 0.5);
-}
-
-.toolbar span > button {
-  flex:auto;
-  text-align: center;
-  min-width: 80px;
-  height:2em;
-  padding:2px;
-  margin:3px;
-  border-radius: 4px;
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
-.toolbar span > button:hover {
-  flex:auto;
-  text-align: center;
-  min-width: 80px;
-  height:2em;
-  padding:2px;
-  margin:3px;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .toolbar > button:hover {
@@ -83,7 +62,7 @@ h4 {
   margin: auto;
   min-width:600px;
   min-height: 600px;
-  background-color:#e1e1e1;
+  background-color:gray;
   border:2px solid black;
   border-radius: 8px;
 }
@@ -93,6 +72,7 @@ h4 {
 }
 
 .handlers{
+  display: none;
   padding:6px;
   width:8px;
   height:8px;
@@ -147,13 +127,14 @@ h4 {
 }
 
 #pallete{
-  float:right;
-  background-color: yellow;
+  display: none;
+  margin-top: -45px;
+  padding:2px;
+  margin-right:250px;
+  background-color: rgba(255,255,255,0.5);
   width:140px;
   height:80px;
-  border:1px solid red;
   border-radius: 8px;
-  display: none;
   flex: auto;
 }
 
