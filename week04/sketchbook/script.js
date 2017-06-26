@@ -1,20 +1,22 @@
 
 window.onload = function () {
 
-  var swapMenuBtn = document.getElementById("admin");
-  swapMenuBtn.addEventListener("click", swapMenu);
-
-  function swapMenu(){
-    var adminMenu = document.getElementById('canvas');
-        if(adminMenu.style.backgroundColor === "gray") {
-           adminMenu.style.backgroundColor = "pink";
-        } else {
-          adminMenu.style.backgroundColor = "gray"
-        }
-  }
-
-  var swapMenuBtn = document.getElementById("design");
-  swapMenuBtn.addEventListener("click", swapMenu);
+// *************************SWAP MENU TABS ***********************************************
+  //
+  // var swapMenuBtn = document.getElementById("admin");
+  // swapMenuBtn.addEventListener("click", swapMenu);
+  //
+  // function swapMenu(){
+  //   var adminMenu = document.getElementById('canvas');
+  //       if(adminMenu.style.backgroundColor === "gray") {
+  //          adminMenu.style.backgroundColor = "pink";
+  //       } else {
+  //         adminMenu.style.backgroundColor = "gray"
+  //       }
+  // }
+  //
+  // var swapMenuBtn = document.getElementById("design");
+  // swapMenuBtn.addEventListener("click", swapMenu);
 
   // *************************CREATE SHAPES PART ***********************************************
   var rectBtn = document.getElementById("rectMaker");
@@ -84,7 +86,7 @@ window.onload = function () {
           return shape;
         }
 //refactor with Andrey or Assaf
-  //make squares appear only when div is pressed
+//make squares appear only when div is pressed
         function handlerShow(){
           var showHandler = document.getElementsByClassName('selected')
           // var showHandler = document.querySelectorAll('.handlers1, .handlers2, .handlers3, .handlers4');
