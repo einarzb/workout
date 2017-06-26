@@ -13,16 +13,18 @@
             <button id="ovalMaker" type="button" name="oval">oval</button>
             <button id="color" type="button" name="color">color</button>
             <div id="pallete">
-                <button type="button" id="pink" name="pink">pink</button>
-                <button type="button" id="black" name="black">black</button>
-                <button type="button" id="red" name="red">red</button>
-                <button type="button" id="green" name="green">green</button>
+                <button type="button" id="pink" onclick="makePink()" name="pink">pink</button>
+                <button type="button" id="black" onclick="makeBlack()" name="black">black</button>
+                <button type="button" id="red" onclick="makeRed()" name="red">red</button>
+                <button type="button" id="green" onclick="makeGreen()" name="green">green</button>
             </div>
         </div>
-        <div class="top-nav">
-          <button id="load" type="button" name="load">load</button>
-          <button id="save" type="button" name="save">save</button>
-          <button id="delete" type="button" name="delete">delete</button>
+        <div class="toolbar">
+           <span style="margin-top:50px;">
+              <button id="load" type="button" name="load">load</button>
+              <button id="save" type="button" name="save">save</button>
+              <button id="delete" type="button" name="delete">delete</button>
+          </span>
         </div>
       </div>
 

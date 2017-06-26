@@ -84,18 +84,6 @@ window.onload = function () {
   colorChangeBtn.addEventListener("click", colorChange);
   // colorChangeBtn.addEventListener("click", colorChangeBack);
 
-  var pinkBtn = document.getElementById("pink");
-  pinkBtn.addEventListener("click", makePink);
-
-  var blackBtn = document.getElementById("black");
-  blackBtn.addEventListener("click", makeBlack);
-
-  var redBtn = document.getElementById("red");
-  redBtn.addEventListener("click", makeRed);
-
-  var greenBtn = document.getElementById("green");
-  greenBtn.addEventListener("click", makeGreen);
-
 //CHANGE IT TO TOGGLE
   function colorChange(){
     document.getElementById('pallete').style.display = "block";
