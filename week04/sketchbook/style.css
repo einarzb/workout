@@ -6,29 +6,52 @@ body {
 }
 
 h4 {
+  color:#fff;
   text-align: center;
 }
 .header {
   padding:4px;
   width:960px;
   margin:auto;
-  background-color: gray;
+  background-color: #eb4d5c;
+  border-radius: 8px;
 }
 
 .toolbar {
-  width:100%;
+
+  width:30%;
   display: inline-block;
   border-radius: 8px;
-  padding:5px;
-  margin:2px 0px;
-  background-color: pink;
+  padding:1px;
+  margin:-20px 50px 10px 320px;
+  background-color: rgba(255,255,255,0.5);
 }
 
-.toolbar span > button {
+.toolbar > button {
+  flex:auto;
   text-align: center;
+  min-width: 80px;
+  height:2em;
   padding:2px;
   margin:3px;
   border-radius: 4px;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.toolbar > button:hover {
+  flex:auto;
+  text-align: center;
+  min-width: 80px;
+  height:2em;
+  padding:2px;
+  margin:3px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.top-nav{
+  top:0px;
+  right:200px;
 }
 
 #canvas {
@@ -44,6 +67,17 @@ h4 {
 
 .rectShape, .ovalShape {
   position: absolute;
+}
+
+.handlers{
+  padding:6px;
+  width:8px;
+  height:8px;
+  border:1px solid black;
+}
+
+.handlers1{
+  border:1px solid red;
 }
 
 .ovalShape {

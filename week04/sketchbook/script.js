@@ -1,61 +1,13 @@
 
 window.onload = function () {
 
+  // *************************CREATE SHAPES PART ***********************************************
+
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
 
   var ovalBtn = document.getElementById("ovalMaker");
   ovalBtn.addEventListener("click", createOval);
-
-  var deleteBtn = document.getElementById("delete");
-  deleteBtn.addEventListener("click", removeShape);
-
-  var colorChangeBtn = document.getElementById("color");
-  colorChangeBtn.addEventListener("click", colorChange);
-  // colorChangeBtn.addEventListener("click", colorChangeBack);
-
-  var pinkBtn = document.getElementById("pink");
-  pinkBtn.addEventListener("click", makePink);
-
-  var blackBtn = document.getElementById("black");
-  blackBtn.addEventListener("click", makeBlack);
-
-  var redBtn = document.getElementById("red");
-  redBtn.addEventListener("click", makeRed);
-
-  var greenBtn = document.getElementById("green");
-  greenBtn.addEventListener("click", makeGreen);
-
-
-  function colorChange(){
-    document.getElementById('pallete').style.display = "block";
-  }
-
-  // function colorChangeBack(){
-  //   document.getElementById('pallete').style.display = "none";
-  // }
-
-  function makePink(){
-      alert("pink me");
-  }
-
-  function makeBlack(){
-      alert("black me");
-  }
-
-  function makeRed(){
-      alert("red me");
-  }
-
-  function makeGreen(){
-      alert("green me");
-  }
-
-  function removeShape(){
-    console.log("remove me");
-    var shape = createRandomShape();
-    document.getElementById('canvas').removeChild(shape);
-  }
 
   function createRect(){
     var shape = createRandomShape();
@@ -79,9 +31,6 @@ window.onload = function () {
   }
 
   function randomLocationWidth(){
-    console.log("screen width " + window.innerWidth); //1013-250
-    console.log("screen height " + window.innerHeight);//786
-
     return ((Math.random() * (window.innerWidth)/2 + "px"));
   }
 
@@ -96,7 +45,78 @@ window.onload = function () {
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
-    return shape;
+    // return shape;
+    return createHandlers(shape);
   }
 
+  // *************************CREATE SHAPE HANDLERS PART ***********************************************
+  //make squares appear only when div is pressed
+  var allShapes = document.getElementById("div");
+  allShapes.addEventListener("click", createHandlers);
+
+    function createHandlers(shape){
+      var handlers = [];
+      for (var i = 0; i < 4; i++) {
+          //create 4 handlers
+            handlers = document.createElement("div");
+            //style them
+            handlers.classList.add("handlers");
+            //append them to shape
+            shape.appendChild(handlers);
+          }
+          return shape;
+        }
+
+// *************************DELETE SHAPES PART ***********************************************
+
+    var deleteBtn = document.getElementById("delete");
+    deleteBtn.addEventListener("click", removeShape);
+
+    function removeShape(){
+      console.log("remove me");
+      var shape = createRandomShape();
+      document.getElementById('canvas').removeChild(shape);
+    }
+
+// *************************COLOR CHANGES PART ***********************************************
+  var colorChangeBtn = document.getElementById("color");
+  colorChangeBtn.addEventListener("click", colorChange);
+  // colorChangeBtn.addEventListener("click", colorChangeBack);
+
+  var pinkBtn = document.getElementById("pink");
+  pinkBtn.addEventListener("click", makePink);
+
+  var blackBtn = document.getElementById("black");
+  blackBtn.addEventListener("click", makeBlack);
+
+  var redBtn = document.getElementById("red");
+  redBtn.addEventListener("click", makeRed);
+
+  var greenBtn = document.getElementById("green");
+  greenBtn.addEventListener("click", makeGreen);
+
+//CHANGE IT TO TOGGLE
+  function colorChange(){
+    document.getElementById('pallete').style.display = "block";
+  }
+
+  // function colorChangeBack(){
+  //   document.getElementById('pallete').style.display = "none";
+  // }
+
+  function makePink(){
+      alert("pink me");
+  }
+
+  function makeBlack(){
+      alert("black me");
+  }
+
+  function makeRed(){
+      alert("red me");
+  }
+
+  function makeGreen(){
+      alert("green me");
+  }
 }
