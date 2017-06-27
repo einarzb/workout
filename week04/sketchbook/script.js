@@ -127,9 +127,10 @@ function change() {
 
 // *************************COLOR CHANGES PART ***********************************************
   var colorChangeBtn = document.getElementById("color");
-    colorChangeBtn.addEventListener("click", colorChange);
+  colorChangeBtn.addEventListener("click", colorChange);
 
-  function colorChange(){
+//reveals color pallete - change to toggle method
+function colorChange(){
     var pallete = document.getElementById('pallete');
     if (pallete.style.display === "block") {
         pallete.style.display = "none";
@@ -137,5 +138,14 @@ function change() {
       pallete.style.display = "block"
     }
   }
+}
 
+var pinkBtn = document.getElementById("pink");
+pinkBtn.addEventListener("click", makePink);
+
+function makePink(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "pink";
+  }
 }

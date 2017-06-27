@@ -290,12 +290,12 @@ h2 {
 
 #pallete{
   display: none;
-  margin-top:5px;
+  margin-top:7px;
   padding:2px;
   margin-right:250px;
   background-color: rgba(255,255,255,0.5);
   width:140px;
-  height:80px;
+  height:55px;
   border-radius: 8px;
   flex: auto;
 }
