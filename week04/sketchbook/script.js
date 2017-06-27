@@ -57,47 +57,55 @@ window.onload = function () {
   function createRandomShape () {
     //create new shape
     var shape = document.createElement("div");
-    //insert event listener to the shape
-    shape.addEventListener("click", handlerShow);
     //styling of shape
     shape.style.width = randomSize();
     shape.style.height = randomSize();
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
-    // return shape;
-     return createHandlers(shape);
+     return createCorners(shape);
   }
 
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
 
-//creates 4 handlers
-    function createHandlers(shape){
-      var handlers = [];
-      for (var i = 0; i < 5; i++) {
-           //create 4 handlers
-            handlers = document.createElement("div");
-            //style them each i(1-4) is different corner
-            handlers.classList.add("handlers" + i);
-            //append them to shape
-            shape.appendChild(handlers);
+  function createCorners(shape){
+    //create 4 divs
+          cornerUpLeft = document.createElement("div");
+          cornerUpRight = document.createElement("div");
+          cornerBtmLeft =  document.createElement("div");
+          cornerBtmRight =  document.createElement("div");
+   //style
+          cornerUpLeft.className = "corners cornerUpLeft";
+          cornerUpRight.className = "corners cornerUpRight";
+          cornerBtmLeft.className = "corners cornerBtmLeft";
+          cornerBtmRight.className = "corners cornerBtmRight";
+    //append it to shape
+          shape.appendChild(cornerUpLeft);
+          shape.appendChild(cornerUpRight);
+          shape.appendChild(cornerBtmLeft);
+          shape.appendChild(cornerBtmRight);
+
+      //hide corners
+        function removeCorners(shape){
+          var corners = document.getElementsByClassName("corners");
+          var len = corners.length;
+          while (len>0){
+              corners[0].classList.remove("corners");
+              --len;
           }
-          return shape;
         }
-//refactor with Andrey or Assaf
-//make squares appear only when div is pressed
-        function handlerShow(){
-          var showHandler = document.getElementsByClassName('selected')
-          // var showHandler = document.querySelectorAll('.handlers1, .handlers2, .handlers3, .handlers4');
-          for (var i = 0; i < showHandler.length; i++) {
-            if (showHandler[i].style.display === "block") {
-                showHandler[i].style.display = "none";
-            } else {
-                showHandler[i].style.display = "block"
+        //show corners
+        shape.addEventListener("click", function(event){
+            var corners = this.children;
+            removeCorners(shape);
+            for (var i=0; i<corners.length;++i){
+                corners[i].classList.toggle("corners");
             }
           }
-        }
+        );
+
+      return shape;}
 
 // *************************DELETE SHAPES PART ***********************************************
 

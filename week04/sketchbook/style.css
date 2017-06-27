@@ -79,68 +79,35 @@ h2 {
   position: absolute;
 }
 
-.handlers{
-  display: none;
-  padding:6px;
-  width:8px;
-  height:8px;
-  border:1px solid black;
-  position: absolute;
-}
-
-/*left top corner*/
-.handlers1{
-  display: none;
-  position: absolute;
-  margin-left:-10px;
-  margin-top:-10px;
-  width:20px;
-  height:20px;
-  border:1px solid #000;
-}
-
-/*right top corner*/
-.handlers2{
-  display: none;
-  position: absolute;
-  right:-10px;
-  margin-top:-10px;
-  width:20px;
-  height:20px;
-  border:1px solid #000;
-}
-
-/*left bottom corner*/
-.handlers3{
-  display: none;
-  position: absolute;
-  margin-left:-10px;
-  bottom:-10px;
-  width:20px;
-  height:20px;
-  border:1px solid #000;
-}
-
-/*right bottom corner*/
-.handlers4{
-  display: none;
-  position: absolute;
-  right:-10px;
-  bottom:-10px;
-  width:20px;
-  height:20px;
-  border:1px solid #000;
-}
-
-.selected .handlers4,
-.selected .handlers3,
-.selected .handlers2,
-.selected .handlers1 {
-  display: block;
-}
-
 .ovalShape {
   border-radius: 50%;
+}
+
+.corners{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background:#fff;
+    border: 1px solid black;
+}
+.cornerUpLeft{
+    top: -10px;
+    left: -10px;
+}
+
+.cornerUpRight{
+    top: -10px;
+    right: -10px;
+}
+
+.cornerBtmLeft{
+    bottom: -10px;
+    left: -10px;
+}
+
+.cornerBtmRight{
+    bottom: -10px;
+    right: -10px;
 }
 
 #pallete{
