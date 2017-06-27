@@ -1,22 +1,17 @@
 
 window.onload = function () {
 
-// *************************SWAP MENU TABS ***********************************************
-  //
   // var swapMenuBtn = document.getElementById("admin");
   // swapMenuBtn.addEventListener("click", swapMenu);
   //
   // function swapMenu(){
   //   var adminMenu = document.getElementById('canvas');
-  //       if(adminMenu.style.backgroundColor === "gray") {
-  //          adminMenu.style.backgroundColor = "pink";
-  //       } else {
-  //         adminMenu.style.backgroundColor = "gray"
-  //       }
+  //   if(adminMenu.style.backgroundColor === "gray") {
+  //       adminMenu.style.backgroundColor = "pink";
+  //   } else {
+  //     adminMenu.style.backgroundColor = "gray"
+  //   }
   // }
-  //
-  // var swapMenuBtn = document.getElementById("design");
-  // swapMenuBtn.addEventListener("click", swapMenu);
 
   // *************************CREATE SHAPES PART ***********************************************
   var rectBtn = document.getElementById("rectMaker");
@@ -63,49 +58,58 @@ window.onload = function () {
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
-     return createCorners(shape);
+    // return shape;
+     return shape;
   }
 
+// *************************function SELECT / DESELECT item ***********************************************
+
+var canvas = document.getElementById("canvas");
+var selected = document.getElementsByClassName("selected");
+
+canvas.addEventListener("click", change)
+
+function change() {
+
+  //A reference to the object that dispatched the event
+  var choosen = event.target;
+
+  //Find out if shapes classes is a descendant of a choosen element:
+  if(choosen.classList.contains("ovalShape") || choosen.classList.contains("rectShape")) {
+
+    //if item was already selected
+      if(choosen.classList.contains("selected")){
+          choosen.style.zIndex = "initial";
+          removeHandlers(choosen);
+          choosen.classList.remove("selected");
+      }else{
+    //if item was not selected before
+          choosen.style.zIndex = "1";
+          showHandlers(choosen)
+          //delete
+          //color
+          choosen.classList.add("selected");
+      }
+   }
+};
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
 
-  function createCorners(shape){
-    //create 4 divs
-          cornerUpLeft = document.createElement("div");
-          cornerUpRight = document.createElement("div");
-          cornerBtmLeft =  document.createElement("div");
-          cornerBtmRight =  document.createElement("div");
-   //style
-          cornerUpLeft.className = "corners cornerUpLeft";
-          cornerUpRight.className = "corners cornerUpRight";
-          cornerBtmLeft.className = "corners cornerBtmLeft";
-          cornerBtmRight.className = "corners cornerBtmRight";
-    //append it to shape
-          shape.appendChild(cornerUpLeft);
-          shape.appendChild(cornerUpRight);
-          shape.appendChild(cornerBtmLeft);
-          shape.appendChild(cornerBtmRight);
+  function removeHandlers() {
+  }
 
-      //hide corners
-        function removeCorners(shape){
-          var corners = document.getElementsByClassName("corners");
-          var len = corners.length;
-          while (len>0){
-              corners[0].classList.remove("corners");
-              --len;
-          }
+  function showHandlers(choosen) {
+    var handlers = [];
+    for (var i = 0; i < 5; i++) {
+         //create 4 handlers
+          handlers = document.createElement("div");
+          //style them each i(1-4) is different corner
+          handlers.classList.add("handlers" + i);
+          //append them to shape
+          choosen.appendChild(handlers);
         }
-        //show corners
-        shape.addEventListener("click", function(event){
-            var corners = this.children;
-            removeCorners(shape);
-            for (var i=0; i<corners.length;++i){
-                corners[i].classList.toggle("corners");
-            }
-          }
-        );
-
-      return shape;}
+        return choosen;
+  }
 
 // *************************DELETE SHAPES PART ***********************************************
 
@@ -131,19 +135,4 @@ window.onload = function () {
     }
   }
 
-  // function makePink(){
-  //     alert("pink me");
-  // }
-  //
-  // function makeBlack(){
-  //     alert("black me");
-  // }
-  //
-  // function makeRed(){
-  //     alert("red me");
-  // }
-  //
-  // function makeGreen(){
-  //     alert("green me");
-  // }
 }
