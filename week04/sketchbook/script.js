@@ -2,14 +2,6 @@
 
 window.onload = function () {
 
-//delete keyboard way
-window.onkeypress = function(event) {
-     if (event.keyCode == 127) {
-        removeShape();
-     }
-  }
-
-
   // var swapMenuBtn = document.getElementById("admin");
   // swapMenuBtn.addEventListener("click", swapMenu);
   //
@@ -75,11 +67,9 @@ window.onkeypress = function(event) {
 
 var canvas = document.getElementById("canvas");
 var selected = document.getElementsByClassName("selected");
-
 canvas.addEventListener("click", change)
 
 function change(e) {
-  // e.ctrlKey = true;
   //A reference to the object that dispatched the event
   var choosen = event.target;
 
@@ -91,16 +81,95 @@ function change(e) {
           choosen.style.zIndex = "initial";
           removeHandlers(choosen);
           choosen.classList.remove("selected");
+          choosen.classList.remove("draggable");
       }else{
     //if item was not selected before
           choosen.style.zIndex = "1";
-          showHandlers(choosen)
-          //delete
-          //color
           choosen.classList.add("selected");
+          choosen.classList.add("draggable");
+          showHandlers(choosen)
       }
    }
 };
+
+//*****************************   DRAG  ***************************************************
+// MOUSE starting positions
+var startX = 0;
+var startY = 0;
+// SELECTED element offset
+var offsetX = 0;
+var offsetY = 0;
+// the dragged element that is being passed from startDrag to dragFunc
+var dragElement;
+// we temporarily increase the z-index during drag
+var oldZIndex = 0;
+InitDragDrop();
+
+function InitDragDrop(){
+  //invoke functions of start and stop drag
+  document.onmousedown = startDrag; //when pressing a mouse button over
+  document.onmouseup = stopDrag; //when mouse button is released
+}
+
+function startDrag(e){
+      // e.preventDefault();
+      //the selected object containing left and top value of the div
+      var target = e.target;
+      console.log(target.className);
+
+      /*if mouse button that was pressed is left or wheel
+      and choosen element contains drag class ====>*/
+      if (target.className != 'draggable'){
+        //mouse position
+        startX = e.clientX; //Get horizontal coordinate
+        startY = e.clientY; //Get vertical coordinate
+        console.log("mouse position is: x: " + startX, " y: " + startY);
+
+        //clicked-element's position
+        //offset is invoking function that pass as an argument the left & top coordinate
+        offsetX = ExtractNumber(target.style.left);
+        offsetY = ExtractNumber(target.style.top);
+        console.log("element position is left: " + offsetX , " and top is: " + offsetY);
+
+        // make clicked element on front while being dragged
+        oldZIndex = target.style.zIndex;
+        target.style.zIndex = 10000;
+
+        /* reassign target DRAGGED element to a new object that would be
+        passed to next function OnMouseMove */
+        dragElement = target;
+
+        // invoking moving function when mouse is moving
+        document.onmousemove = dragFunc;
+    } else {
+      console.log("this is shit");
+    }
+}
+
+function dragFunc(e) {
+  //mouse coordinate + clicked element position  -  coordinate mouse position
+    dragElement.style.left = (offsetX + e.clientX - startX) + 'px';
+    dragElement.style.top = (offsetY + e.clientY - startY) + 'px';
+  }
+
+function stopDrag(e) {
+    if (dragElement != null) {
+        dragElement.style.zIndex = oldZIndex;
+
+        // initialze back
+        document.onmousemove = null;
+        document.onselectstart = null;
+        dragElement.ondragstart = null;
+        dragElement = null;
+
+    }
+}
+
+function ExtractNumber(value){
+  //element position
+    var n = parseInt(value); //parse int to round the number
+    return n == null || isNaN(n) ? 0 : n;
+}
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
 
@@ -147,7 +216,6 @@ function colorChange(){
       pallete.style.display = "block"
     }
   }
-}
 
 var pinkBtn = document.getElementById("pink");
 pinkBtn.addEventListener("click", makePink);
@@ -199,7 +267,6 @@ function makePurple(){
   }
 }
 
-
 var whiteBtn = document.getElementById("white");
 whiteBtn.addEventListener("click", makeWhite);
 
@@ -209,3 +276,7 @@ function makeWhite(){
     colored[i].style.backgroundColor = "white";
   }
 }
+
+
+
+}//end main function

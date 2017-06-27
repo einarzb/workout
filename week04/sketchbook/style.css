@@ -10,6 +10,10 @@ h2 {
   text-align: center;
 }
 
+.draggable {
+   position: relative;
+ }
+
 .header {
   padding:4px;
   width:960px;
