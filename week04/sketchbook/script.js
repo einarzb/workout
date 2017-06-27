@@ -1,5 +1,4 @@
 
-
 window.onload = function () {
 
   // var swapMenuBtn = document.getElementById("admin");
@@ -59,6 +58,8 @@ window.onload = function () {
     shape.style.backgroundColor = randomColor();
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
+    InitDragDrop(); //why the fuck would canvas move also
+
     // return shape;
      return shape;
   }
@@ -87,7 +88,7 @@ function change(e) {
           choosen.style.zIndex = "1";
           choosen.classList.add("selected");
           choosen.classList.add("draggable");
-          showHandlers(choosen)
+          showHandlers(choosen);
       }
    }
 };
@@ -103,7 +104,7 @@ var offsetY = 0;
 var dragElement;
 // we temporarily increase the z-index during drag
 var oldZIndex = 0;
-InitDragDrop();
+// InitDragDrop();
 
 function InitDragDrop(){
   //invoke functions of start and stop drag
@@ -111,12 +112,11 @@ function InitDragDrop(){
   document.onmouseup = stopDrag; //when mouse button is released
 }
 
+//this happens on everything!! whyyyyy
 function startDrag(e){
       // e.preventDefault();
       //the selected object containing left and top value of the div
       var target = e.target;
-      console.log(target.className);
-
       /*if mouse button that was pressed is left or wheel
       and choosen element contains drag class ====>*/
       if (target.className != 'draggable'){
@@ -141,8 +141,6 @@ function startDrag(e){
 
         // invoking moving function when mouse is moving
         document.onmousemove = dragFunc;
-    } else {
-      console.log("this is shit");
     }
 }
 
