@@ -291,14 +291,15 @@ h2 {
 #pallete{
   text-align: center;
   display: none;
-  margin-top:7px;
+  margin-top:4px;
   padding:2px;
-  margin-right:250px;
+  margin-left:190px;
   background-color: rgba(255,255,255,0.5);
-  width:180px;
-  height:55px;
-  border-radius: 8px;
+  width:70px;
+  height:175px;
   flex: auto;
+  z-index:9999;
+  position: absolute;
 }
 
 .footer {
