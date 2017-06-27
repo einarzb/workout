@@ -117,9 +117,12 @@ function change() {
     deleteBtn.addEventListener("click", removeShape);
 
     function removeShape(){
-      console.log("remove me");
-      var shape = createRandomShape();
-      document.getElementById('canvas').removeChild(shape);
+      var canvas = document.getElementById("canvas");
+      var deletedShape = document.getElementsByClassName('selected');
+
+      for (var i = 0; i < deletedShape.length; i++) {
+        canvas.removeChild(deletedShape[i]);
+      }
     }
 
 // *************************COLOR CHANGES PART ***********************************************
