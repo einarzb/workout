@@ -149,3 +149,54 @@ function makePink(){
     colored[i].style.backgroundColor = "pink";
   }
 }
+
+var blackBtn = document.getElementById("black");
+blackBtn.addEventListener("click", makeBlack);
+
+function makeBlack(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "black";
+  }
+}
+
+var redBtn = document.getElementById("red");
+redBtn.addEventListener("click", makeRed);
+
+function makeRed(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "red";
+  }
+}
+
+var greenBtn = document.getElementById("green");
+greenBtn.addEventListener("click", makeGreen);
+
+function makeGreen(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "green";
+  }
+}
+
+var purpleBtn = document.getElementById("purple");
+purpleBtn.addEventListener("click", makePurple);
+
+function makePurple(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "purple";
+  }
+}
+
+
+var whiteBtn = document.getElementById("white");
+whiteBtn.addEventListener("click", makeWhite);
+
+function makeWhite(){
+  var colored = document.getElementsByClassName('selected');
+  for (var i = 0; i < colored.length; i++) {
+    colored[i].style.backgroundColor = "white";
+  }
+}
