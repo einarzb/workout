@@ -1,5 +1,14 @@
 
+
 window.onload = function () {
+
+//delete keyboard way
+window.onkeypress = function(event) {
+     if (event.keyCode == 127) {
+        removeShape();
+     }
+  }
+
 
   // var swapMenuBtn = document.getElementById("admin");
   // swapMenuBtn.addEventListener("click", swapMenu);
@@ -69,8 +78,8 @@ var selected = document.getElementsByClassName("selected");
 
 canvas.addEventListener("click", change)
 
-function change() {
-
+function change(e) {
+  // e.ctrlKey = true;
   //A reference to the object that dispatched the event
   var choosen = event.target;
 
