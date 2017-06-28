@@ -26,9 +26,9 @@ window.onload = function () {
     }
 
   var colorChangeBtn = document.getElementById("color");
-  colorChangeBtn.addEventListener("mouseover", colorChange);
+  colorChangeBtn.addEventListener("click", colorChange);
 
-  canvas.addEventListener("click", change)
+  canvas.addEventListener("click", select)
 }
 
 //********************************** end main ONLOAD function **********************************
@@ -40,9 +40,9 @@ function createRect(){
   };
 
 function createOval(){
-  var shape = createRandomShape();
-  shape.classList.add("ovalShape");
-  document.getElementById('canvas').appendChild(shape);
+   var shape = createRandomShape();
+   shape.classList.add("ovalShape");
+   document.getElementById('canvas').appendChild(shape);
 }
 
 //random color size and position
@@ -62,10 +62,9 @@ function randomLocationTop(){
   return ((Math.random() * (window.innerHeight)/2 + "px"));
 }
 
+//make this function return an object
 function createRandomShape () {
-  //create new shape
   var shape = document.createElement("div");
-  //styling of shape
   shape.style.width = randomSize();
   shape.style.height = randomSize();
   shape.style.backgroundColor = randomColor();
@@ -76,9 +75,8 @@ function createRandomShape () {
 
 // *************************function SELECT / DESELECT item ***********************************
 
-function change(e) {
-  //A reference to the object that dispatched the event
-  var choosen = event.target;
+function select(e) {
+  var choosen = e.target;
 
   //Find out if shapes classes is a descendant of a choosen element:
   if(choosen.classList.contains("ovalShape") || choosen.classList.contains("rectShape")) {
@@ -86,29 +84,83 @@ function change(e) {
     //if item was already selected
       if(choosen.classList.contains("selected")){
           choosen.style.zIndex = "initial";
-          removeHandlers(choosen);
           choosen.classList.remove("selected");
           choosen.classList.remove("draggable");
+          choosen.style.cursor = "auto";
+          removeHandlers(choosen);
       }else{
     //if item was not selected before
           choosen.style.zIndex = "1";
           choosen.classList.add("selected");
           choosen.classList.add("draggable");
+          choosen.style.cursor = "move";
           showHandlers(choosen);
       }
    }
-};
+
+   var draggable = document.getElementsByClassName("draggable");
+   var dragCount = draggable.length;
+
+//maybe fix this 
+   if (dragCount > 0) {
+       for (var i = 0; i < dragCount; ++i) {
+           draggable[i].addEventListener("mousedown", initDrag);
+       }
+   }
+}
+
 
 // ****************************** DELETE SHAPES ***********************************************
       function removeShape(){
-        var deletedShape = document.getElementsByClassName('selected');
+        var child = canvas.children;
 
-        for (var i = 0; i < deletedShape.length; i++) {
-          canvas.removeChild(deletedShape[i]);
+        for (var i = 0; i < child.length; i++) {
+          if ((child[i].classList.contains("selected"))) {
+          canvas.removeChild(child[i]);
+          i--;
         }
       }
+    }
 
-//*****************************   DRAG  ***************************************************
+//*****************************   DRAG AROUND ***************************************************
+
+function initDrag(e) {
+    //initial
+    var draggedItem = this;
+    //calc position (mouse - object)
+    var moveX = e.clientX - draggedItem.offsetLeft;
+    var moveY = e.clientY - draggedItem.offsetTop;
+
+    draggedItem.addEventListener('mouseup', stopDrag);
+    draggedItem.addEventListener('mousemove', dragging);
+
+    function dragging(e) {
+        var left = parseInt(e.clientX - moveX);
+        var top = parseInt(e.clientY - moveY);
+
+        if (top < 0) {
+            top = 0;
+        }
+        if (left < 0) {
+            left = 0;
+        }
+        if (top > window.innerHeight - 1) {
+            top = window.innerHeight - 1;
+        }
+        if (left > window.innerWidth - 1) {
+            left = window.innerWidth - 1;
+        }
+
+        draggedItem.style.left = left + 'px';
+        draggedItem.style.top = top + 'px';
+    }
+
+    function stopDrag() {
+        draggedItem.removeEventListener('mousemove', dragging);
+        draggedItem.removeEventListener('mouseup', stopDrag);
+        draggedItem.removeEventListener('mousedown', initDrag);
+    }
+}
 
 
   // *************************CREATE SHAPE HANDLERS PART ***********************************************
@@ -128,6 +180,20 @@ function change(e) {
         }
         return choosen;
   }
+
+  // *************************SAVE TO LOCALHOST ***********************************************
+function saveDraw(){
+  var savedDraw = document.getElementById("canvas");
+  localStorage["myDraw"] = JSON.stringify(draw.innerHTML);
+}
+
+function loadDraw(){
+  var loadedDraw = document.getElementById("canvas");
+  loadDraw.innerHTML = JSON.parse(localStorage["myDraw"]);
+  for (var i = 0; i < loadDraw.children.length; i++) {
+      loadDraw.children[i].addEventListener("click", chosen);
+  }
+}
 
 
 // *************************COLOR CHANGES PART ***********************************************
