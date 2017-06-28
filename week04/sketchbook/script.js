@@ -1,7 +1,7 @@
 
 window.onload = function () {
 
-// *************************CREATE SHAPES PART ***********************************************
+// ***************************** CREATE SHAPES ***********************************************
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
 
@@ -47,10 +47,29 @@ window.onload = function () {
     shape.style.left = randomLocationWidth();
     shape.style.top = randomLocationTop();
     InitDragDrop(); //why the fuck would canvas move also
-
-    // return shape;
      return shape;
   }
+
+// ****************************** DELETE SHAPES ***********************************************
+      //delete VIA keyboard
+      window.onkeypress = function(event) {
+           if (event.keyCode == 127) {
+              removeShape();
+           }
+        }
+
+     //delete VIA mouse btn
+      var deleteBtn = document.getElementById("delete");
+      deleteBtn.addEventListener("click", removeShape);
+
+      function removeShape(){
+        var canvas = document.getElementById("canvas");
+        var deletedShape = document.getElementsByClassName('selected');
+
+        for (var i = 0; i < deletedShape.length; i++) {
+          canvas.removeChild(deletedShape[i]);
+        }
+      }
 
 // *************************function SELECT / DESELECT item ***********************************************
 
@@ -175,26 +194,6 @@ function ExtractNumber(value){
         return choosen;
   }
 
-// *************************DELETE SHAPES PART ***********************************************
-    //delete VIA keyboard
-    window.onkeypress = function(event) {
-         if (event.keyCode == 127) {
-            removeShape();
-         }
-      }
-
-   //delete VIA mouse btn
-    var deleteBtn = document.getElementById("delete");
-    deleteBtn.addEventListener("click", removeShape);
-
-    function removeShape(){
-      var canvas = document.getElementById("canvas");
-      var deletedShape = document.getElementsByClassName('selected');
-
-      for (var i = 0; i < deletedShape.length; i++) {
-        canvas.removeChild(deletedShape[i]);
-      }
-    }
 
 // *************************COLOR CHANGES PART ***********************************************
   var colorChangeBtn = document.getElementById("color");
