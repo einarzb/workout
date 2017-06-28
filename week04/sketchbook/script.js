@@ -1,13 +1,6 @@
 
 window.onload = function () {
 
-//delete via keyboard
-window.onkeypress = function(event) {
-     if (event.keyCode == 127) {
-        removeShape();
-     }
-  }
-
 // *************************CREATE SHAPES PART ***********************************************
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
@@ -183,7 +176,14 @@ function ExtractNumber(value){
   }
 
 // *************************DELETE SHAPES PART ***********************************************
+    //delete VIA keyboard
+    window.onkeypress = function(event) {
+         if (event.keyCode == 127) {
+            removeShape();
+         }
+      }
 
+   //delete VIA mouse btn
     var deleteBtn = document.getElementById("delete");
     deleteBtn.addEventListener("click", removeShape);
 
@@ -198,7 +198,7 @@ function ExtractNumber(value){
 
 // *************************COLOR CHANGES PART ***********************************************
   var colorChangeBtn = document.getElementById("color");
-  colorChangeBtn.addEventListener("click", colorChange);
+  colorChangeBtn.addEventListener("mouseover", colorChange);
 
 //reveals color pallete - change to toggle method
 function colorChange(){
