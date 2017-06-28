@@ -26,7 +26,7 @@ window.onload = function () {
     }
 
   var colorChangeBtn = document.getElementById("color");
-  colorChangeBtn.addEventListener("click", colorChange);
+  colorChangeBtn.addEventListener("mouseover", colorChange);
 
   canvas.addEventListener("click", select)
 }
@@ -77,6 +77,7 @@ function createRandomShape () {
 
 function select(e) {
   var choosen = e.target;
+  var corners = choosen.children;
 
   //Find out if shapes classes is a descendant of a choosen element:
   if(choosen.classList.contains("ovalShape") || choosen.classList.contains("rectShape")) {
@@ -101,7 +102,7 @@ function select(e) {
    var draggable = document.getElementsByClassName("draggable");
    var dragCount = draggable.length;
 
-//maybe fix this 
+//the thing that initiates the dragging func - CHANGE IT
    if (dragCount > 0) {
        for (var i = 0; i < dragCount; ++i) {
            draggable[i].addEventListener("mousedown", initDrag);
@@ -175,11 +176,52 @@ function initDrag(e) {
           handlers = document.createElement("div");
           //style them each i(1-4) is different corner
           handlers.classList.add("handlers" + i);
+          //invoke resizing
+          handlers.addEventListener('mousedown', resizeShape);
           //append them to shape
           choosen.appendChild(handlers);
         }
         return choosen;
   }
+
+  // *********************************RESIZE ******* ***********************************************
+
+  function resizeShape(){
+    var resizedItem = this;
+    //stop item to move when resizing
+    resizedItem.parentNode.removeEventListener('mousedown', initDrag);
+    resizedItem.addEventListener('click',resizeOn)
+
+//change to switch case
+    function resizeOn(e) {
+      var header = document.getElementsByClassName("header");
+
+        if (this.classList.contains("handlers1")) {
+          console.log("im left corner");
+            this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(header.scrollHeight) + 'px';
+            this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
+
+        } else if (this.classList.contains("handlers2")) {
+            this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(header.scrollHeight) + 'px';
+            this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
+            this.parentNode.style.left = e.clientX + 'px';
+
+        } else if (this.classList.contains("handlers3")) {
+            this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
+            this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(header.scrollHeight) + 'px';
+            this.parentNode.style.top = e.clientY - parseInt(header.scrollHeight) + 'px';
+
+        } else if (this.classList.contains("handlers4")) {
+            this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(header.scrollHeight) + 'px';
+            this.parentNode.style.top = e.clientY - parseInt(header.scrollHeight) + 'px';
+
+            this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
+            this.parentNode.style.left = e.clientX + 'px';
+        }
+    }
+}
+
+
 
   // *************************SAVE TO LOCALHOST ***********************************************
 function saveDraw(){
