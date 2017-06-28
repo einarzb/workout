@@ -1,19 +1,14 @@
 
 window.onload = function () {
 
-  // var swapMenuBtn = document.getElementById("admin");
-  // swapMenuBtn.addEventListener("click", swapMenu);
-  //
-  // function swapMenu(){
-  //   var adminMenu = document.getElementById('canvas');
-  //   if(adminMenu.style.backgroundColor === "gray") {
-  //       adminMenu.style.backgroundColor = "pink";
-  //   } else {
-  //     adminMenu.style.backgroundColor = "gray"
-  //   }
-  // }
+//delete via keyboard
+window.onkeypress = function(event) {
+     if (event.keyCode == 127) {
+        removeShape();
+     }
+  }
 
-  // *************************CREATE SHAPES PART ***********************************************
+// *************************CREATE SHAPES PART ***********************************************
   var rectBtn = document.getElementById("rectMaker");
   rectBtn.addEventListener("click", createRect);
 
