@@ -94,7 +94,7 @@ function select(e) {
           choosen.style.zIndex = "1";
           choosen.classList.add("selected");
           choosen.classList.add("draggable");
-          choosen.style.cursor = "move";
+          choosen.style.cursor = "se-resize";
           showHandlers(choosen);
       }
    }
@@ -190,34 +190,55 @@ function initDrag(e) {
     var resizedItem = this;
     //stop item to move when resizing
     resizedItem.parentNode.removeEventListener('mousedown', initDrag);
-    resizedItem.addEventListener('click',resizeOn)
+    //initialize resize function
+    resizedItem.addEventListener('mousedown',resizeOn)
 
 //change to switch case
     function resizeOn(e) {
-      var header = document.getElementsByClassName("header");
+        var canvas = document.getElementById("canvas");
 
-        if (this.classList.contains("handlers1")) {
-          console.log("im left corner");
-            this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(header.scrollHeight) + 'px';
-            this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
+        var resizeY = resizedItem.parentNode.scrollHeight;
+        var resizex = resizedItem.parentNode.scrollWidth;
+        // console.log(resizedItem); //1-4 ears
+        // console.log(resizedItem.parentNode); //the element that has the ears
 
-        } else if (this.classList.contains("handlers2")) {
-            this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(header.scrollHeight) + 'px';
-            this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
-            this.parentNode.style.left = e.clientX + 'px';
+        console.log("old width: " + resizex);
+        console.log("old height: " + resizeY);
+        console.log(resizedItem.parentNode);
+        console.log("vertical coordinate " + e.clientY);
+        console.log("top: " + parseInt(this.parentNode.style.top));
 
-        } else if (this.classList.contains("handlers3")) {
-            this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
-            this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(header.scrollHeight) + 'px';
-            this.parentNode.style.top = e.clientY - parseInt(header.scrollHeight) + 'px';
+        // new height = vertical mouse position - top - original height.
+        resizedItem.parentNode.style.height =
+            e.clientY - parseInt(this.parentNode.style.top) - parseInt(resizeY) + 'px';
 
-        } else if (this.classList.contains("handlers4")) {
-            this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(header.scrollHeight) + 'px';
-            this.parentNode.style.top = e.clientY - parseInt(header.scrollHeight) + 'px';
 
-            this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
-            this.parentNode.style.left = e.clientX + 'px';
-        }
+        resizedItem.parentNode.style.width =
+         parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
+
+            console.log("new width: " + resizedItem.parentNode.style.width);
+        console.log("new height: " + resizedItem.parentNode.style.height);
+
+        // if (this.classList.contains("handlers1")) {
+        //     this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(this.scrollHeight) + 'px';
+        //     this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
+        // } else if (this.classList.contains("handlers2")) {
+        //     this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(this.scrollHeight) + 'px';
+        //     this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
+        //     this.parentNode.style.left = e.clientX + 'px';
+        //
+        // } else if (this.classList.contains("handlers3")) {
+        //     this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
+        //     this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(this.scrollHeight) + 'px';
+        //     this.parentNode.style.top = e.clientY - parseInt(this.scrollHeight) + 'px';
+        //
+        // } else if (this.classList.contains("handlers4")) {
+        //     this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(this.scrollHeight) + 'px';
+        //     this.parentNode.style.top = e.clientY - parseInt(this.scrollHeight) + 'px';
+        //
+        //     this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
+        //     this.parentNode.style.left = e.clientX + 'px';
+        // }
     }
 }
 
