@@ -159,7 +159,7 @@ function initDrag(e) {
     function stopDrag() {
         draggedItem.removeEventListener('mousemove', dragging);
         draggedItem.removeEventListener('mouseup', stopDrag);
-        draggedItem.removeEventListener('mousedown', initDrag);
+  //      draggedItem.removeEventListener('mousedown', initDrag);
     }
 }
 
@@ -186,32 +186,16 @@ function initDrag(e) {
 
   // *********************************RESIZE ******* ***********************************************
 
-         var shape = this.parentElement;
-         var oldX = event.clientX;
-         var oldY = event.clientY;
-
-         this.onmousemove = function (e) {
-             var newX = e.clientX - oldX;
-             var newY = e.clientY - oldY;
-             shape.style.width = shape.offsetWidth + newX + "px";
-             shape.style.height = shape.offsetHeight + newY + "px";
-
-             oldX = e.clientX;
-             oldY = e.clientY;
-         }
-         this.addEventListener("mouseup", function () {
-             this.onmousemove = null;
-         });
-
   function resizeShape(event){
   //  var resizedItem = this;\
     var shape = this.parentElement;
     var oldX = event.clientX;
     var oldY = event.clientY;
+
     //stop item to move when resizing
     this.parentNode.removeEventListener('mousedown', initDrag);
     //initialize resize function
-    this.addEventListener('mousemove',resizeOn)
+    this.addEventListener('mousemove',resizeOn);
 
 
 /*left top corner*/
@@ -250,8 +234,15 @@ function initDrag(e) {
         shape.style.width = shape.offsetWidth + newX + "px";
         shape.style.height = shape.offsetHeight + newY + "px";
       }
+
+        oldX = e.clientX;
+        oldY = e.clientY;
+
     }
 
+this.addEventListener("mouseup", function(){
+  this.onmousemove = null;
+});
 
 }// end resize shape
 
