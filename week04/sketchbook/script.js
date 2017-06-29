@@ -138,7 +138,7 @@ function initDrag(e) {
     function dragging(e) {
         var left = parseInt(e.clientX - moveX);
         var top = parseInt(e.clientY - moveY);
-
+        //ot
         if (top < 0) {
             top = 0;
         }
@@ -186,61 +186,74 @@ function initDrag(e) {
 
   // *********************************RESIZE ******* ***********************************************
 
-  function resizeShape(){
-    var resizedItem = this;
+         var shape = this.parentElement;
+         var oldX = event.clientX;
+         var oldY = event.clientY;
+
+         this.onmousemove = function (e) {
+             var newX = e.clientX - oldX;
+             var newY = e.clientY - oldY;
+             shape.style.width = shape.offsetWidth + newX + "px";
+             shape.style.height = shape.offsetHeight + newY + "px";
+
+             oldX = e.clientX;
+             oldY = e.clientY;
+         }
+         this.addEventListener("mouseup", function () {
+             this.onmousemove = null;
+         });
+
+  function resizeShape(event){
+  //  var resizedItem = this;\
+    var shape = this.parentElement;
+    var oldX = event.clientX;
+    var oldY = event.clientY;
     //stop item to move when resizing
-    resizedItem.parentNode.removeEventListener('mousedown', initDrag);
+    this.parentNode.removeEventListener('mousedown', initDrag);
     //initialize resize function
-    resizedItem.addEventListener('mousedown',resizeOn)
+    this.addEventListener('mousemove',resizeOn)
 
-//change to switch case
+
+/*left top corner*/
     function resizeOn(e) {
-        var canvas = document.getElementById("canvas");
-
-        var resizeY = resizedItem.parentNode.scrollHeight;
-        var resizex = resizedItem.parentNode.scrollWidth;
-        // console.log(resizedItem); //1-4 ears
-        // console.log(resizedItem.parentNode); //the element that has the ears
-
-        console.log("old width: " + resizex);
-        console.log("old height: " + resizeY);
-        console.log(resizedItem.parentNode);
-        console.log("vertical coordinate " + e.clientY);
-        console.log("top: " + parseInt(this.parentNode.style.top));
-
-        // new height = vertical mouse position - top - original height.
-        resizedItem.parentNode.style.height =
-            e.clientY - parseInt(this.parentNode.style.top) - parseInt(resizeY) + 'px';
-
-
-        resizedItem.parentNode.style.width =
-         parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
-
-            console.log("new width: " + resizedItem.parentNode.style.width);
-        console.log("new height: " + resizedItem.parentNode.style.height);
-
-        // if (this.classList.contains("handlers1")) {
-        //     this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(this.scrollHeight) + 'px';
-        //     this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
-        // } else if (this.classList.contains("handlers2")) {
-        //     this.parentNode.style.height = e.clientY - parseInt(this.parentNode.style.top) - parseInt(this.scrollHeight) + 'px';
-        //     this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
-        //     this.parentNode.style.left = e.clientX + 'px';
-        //
-        // } else if (this.classList.contains("handlers3")) {
-        //     this.parentNode.style.width = e.clientX - parseInt(this.parentNode.style.left) + 'px';
-        //     this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(this.scrollHeight) + 'px';
-        //     this.parentNode.style.top = e.clientY - parseInt(this.scrollHeight) + 'px';
-        //
-        // } else if (this.classList.contains("handlers4")) {
-        //     this.parentNode.style.height = parseInt(this.parentNode.style.height) - e.clientY + parseInt(this.parentNode.style.top) + parseInt(this.scrollHeight) + 'px';
-        //     this.parentNode.style.top = e.clientY - parseInt(this.scrollHeight) + 'px';
-        //
-        //     this.parentNode.style.width = parseInt(this.parentNode.style.width) + (parseInt(this.parentNode.style.left) - e.clientX) + 'px';
-        //     this.parentNode.style.left = e.clientX + 'px';
-        // }
+      if (this.classList.contains("handlers1")) {
+      var newX = e.clientX - oldX;
+      var newY = e.clientY - oldY;
+      shape.style.width = shape.offsetWidth - newX + "px";
+      shape.style.height = shape.offsetHeight - newY + "px";
+      shape.style.top = shape.offsetTop + newY + "px";
+      shape.style.left = shape.offsetLeft + newX + "px";
     }
-}
+
+    /*right top corner*/
+      if (this.classList.contains("handlers2")) {
+      var newX = e.clientX - oldX;
+      var newY = e.clientY - oldY;
+      shape.style.width = shape.offsetWidth + newX + "px";
+      shape.style.height = shape.offsetHeight - newY + "px";
+      shape.style.top = shape.offsetTop + newY + "px";
+    }
+
+    /*left bottom corner*/
+      if (this.classList.contains("handlers3")) {
+        var newX = e.clientX - oldX;
+        var newY = e.clientY - oldY;
+        shape.style.width = shape.offsetWidth - newX + "px";
+        shape.style.height = shape.offsetHeight + newY + "px";
+        shape.style.left = shape.offsetLeft + newX + "px";
+            }
+
+    /*right bottom corner*/
+       if (this.classList.contains("handlers4")) {
+        var newX = e.clientX - oldX;
+        var newY = e.clientY - oldY;
+        shape.style.width = shape.offsetWidth + newX + "px";
+        shape.style.height = shape.offsetHeight + newY + "px";
+      }
+    }
+
+
+}// end resize shape
 
 
 
