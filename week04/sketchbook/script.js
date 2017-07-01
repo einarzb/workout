@@ -7,32 +7,70 @@ window.onload = function () {
   var pallete = document.getElementById('pallete');
   var selected = document.getElementsByClassName("selected");
 
+
 // ***************************** ALL-BUTTONS EVENT LISTENING **********************************
 
-  var rectBtn = document.getElementById("rectMaker");
+//create shape
+  var rectBtn = document.getElementById("rectMakerBtn");
   rectBtn.addEventListener("click", createRect);
 
-  var ovalBtn = document.getElementById("ovalMaker");
+  var ovalBtn = document.getElementById("ovalMakerBtn");
   ovalBtn.addEventListener("click", createOval);
 
- var deleteBtn = document.getElementById("delete");
- deleteBtn.addEventListener("click", removeShape);
-
-  //delete VIA keyboard
-  window.onkeypress = function(event) {
-       if (event.keyCode == 127) {
-          removeShape();
-       }
-    }
-
-  var colorChangeBtn = document.getElementById("color");
+  var colorChangeBtn = document.getElementById("colorBtn");
   colorChangeBtn.addEventListener("mouseover", colorChange);
 
+///////////////////////// saving drawing ///////////////////////
+
+  var saveDrawBtn = document.getElementById("saveDrawBtn");
+  var saveBtn = document.getElementById("saveBtn");
+  saveDrawBtn.addEventListener("click", saveDraw);
+
+  function saveDraw(){
+    var userInput = document.getElementById("drawName").value;
+    console.log(userInput);
+  }
+
+    var popup = document.getElementById('savePopup');
+    var close = document.getElementById("xclose");
+
+    saveBtn.onclick = function() {
+        popup.style.display = "block";
+    }
+
+    close.onclick = function() {
+        popup.style.display = "none";
+    }
+
+    // click anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+        }
+    }
+
+//////////////////loading /////////////////////////////////
+
+  var loadBtn = document.getElementById("loadBtn");
+  loadBtn.addEventListener("click", loadDraw);
+
+  ///////////////////delete//////////////////////////////
+
+  var deleteBtn = document.getElementById("deleteBtn");
+  deleteBtn.addEventListener("click", removeShape);
+
+    //delete VIA keyboard
+    window.onkeypress = function(event) {
+         if (event.keyCode == 127) {
+            removeShape();
+         }
+      }
+
+/////main event listener for selected item
   canvas.addEventListener("click", select)
 }
 
 //********************************** end main ONLOAD function **********************************
-
 function createRect(){
     var shape = createRandomShape();
     shape.classList.add("rectShape");
@@ -249,10 +287,14 @@ this.addEventListener("mouseup", function(){
 
 
   // *************************SAVE TO LOCALHOST ***********************************************
+
+
 function saveDraw(){
-  var savedDraw = document.getElementById("canvas");
-  localStorage["myDraw"] = JSON.stringify(draw.innerHTML);
-}
+    var userInput = document.getElementById("drawName").value;
+    // var savedDraw = document.getElementById("canvas");
+    // localStorage["myDraw"] = JSON.stringify(savedDraw.innerHTML);
+    console.log(userInput);
+  }
 
 function loadDraw(){
   var loadedDraw = document.getElementById("canvas");
