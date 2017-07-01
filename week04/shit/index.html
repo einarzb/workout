@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sketch Book</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <header>
+            <h1>Sketch Board</h1>
+            <nav>
+                <ul>
+                    <li><button onclick="loadItem()" type="button">Load</button></li>
+                    <li class="moveit"><button onclick="saveItem()" type="button">Save</button></li>
+                    <li><button onclick="createRectangle()" type="button">Rectangle</button></li>
+                    <li class="moveit"><button onclick="createRectangle('true')" type="button">Oval</button></li>
+                    <li class="moveit"><button onclick="" type="button">Color</button>
+                        <ul>
+                            <li><button onclick="changeColor('red')" type="button">Red</button></li>
+                            <li><button onclick="changeColor('green')" type="button">Green</button></li>
+                            <li><button onclick="changeColor('blue')" type="button">Blue</button></li>
+                            <li><button onclick="changeColor('Grey')" type="button">Grey</button></li>
+                            <li><button onclick="changeColor('Violet')" type="button">Violet</button></li>
+                        </ul>
+                    </li>
+                    <li class="moveit"><button onclick="DeleteDiv()" type="button">Delete</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="sketch">
+        </div>
+        <div id="saveDiv">
+            <h2>Save</h2>
+             Please Give a Save Name: <input type="text">
+                <button type="button">Save</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

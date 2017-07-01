@@ -18,41 +18,98 @@ window.onload = function () {
   ovalBtn.addEventListener("click", createOval);
 
   var colorChangeBtn = document.getElementById("colorBtn");
-  colorChangeBtn.addEventListener("mouseover", colorChange);
+  colorChangeBtn.addEventListener("click", colorChange);
+
+  // When the user clicks anywhere outside of the modal, close pallete
+  window.onclick = function(event) {
+      if (event.target == colorChangeBtn) {
+          pallete.style.display = "none";
+      }
+  }
+
 
 ///////////////////////// saving drawing ///////////////////////
 
   var saveDrawBtn = document.getElementById("saveDrawBtn");
-  var saveBtn = document.getElementById("saveBtn");
   saveDrawBtn.addEventListener("click", saveDraw);
+  var saveModal = document.getElementById("saveModal");
+  var saveBtn = document.getElementById("saveBtn");
+  var closeSave = document.getElementById("xcloseSave");
+
+  saveBtn.onclick = function() {
+      saveModal.style.display = "block";
+  }
+
+  closeSave.onclick = function() {
+      saveModal.style.display = "none";
+  }
+
+  // click anywhere outside of the popup, close it
+  window.onclick = function(event) {
+      if (event.target == saveModal) {
+          saveModal.style.display = "none";
+      }
+  }
+
+  var drawingNames = JSON.parse(localStorage.getItem("drawingNames"));
+  if(drawingNames == null)
+  	drawingNames = [];
 
   function saveDraw(){
     var userInput = document.getElementById("drawName").value;
+    localStorage.setItem(userInput, canvas.innerHTML);
+    drawingNames.push(userInput);
+    localStorage.setItem("drawingNames",JSON.stringify(drawingNames));
+    saveModal.getElementsByClassName("modal-header")[0].style.display="none";
+    saveModal.getElementsByClassName("modal-body")[0].children[0].innerHTML = "Saved "+name;
+
+    setTimeout(function() {
+    if(saveModal.style.display == "block")
+    saveModal.style.display = "none";
+    },3000);
     console.log(userInput);
   }
 
-    var popup = document.getElementById('savePopup');
-    var close = document.getElementById("xclose");
 
-    saveBtn.onclick = function() {
-        popup.style.display = "block";
+
+//////////////////loading /////////////////////////////////
+  var loadBtn = document.getElementById("loadBtn");
+  var loadDrawBtn = document.getElementById("loadDrawBtn");
+  loadBtn.addEventListener("click", loadDraw);
+
+    var loadModal = document.getElementById('loadModal');
+    var closeLoad = document.getElementById("xcloseLoad");
+
+    loadBtn.onclick = function() {
+        loadModal.style.display = "block";
     }
 
-    close.onclick = function() {
-        popup.style.display = "none";
+    closeLoad.onclick = function() {
+        loadModal.style.display = "none";
     }
 
     // click anywhere outside of the popup, close it
     window.onclick = function(event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
+        if (event.target == loadModal) {
+            loadModal.style.display = "none";
         }
     }
 
-//////////////////loading /////////////////////////////////
+  function loadDraw(){
+    var selectedDraw = document.getElementById("loadName").value;
+    canvas.innerHTML = localStorage.getItem(selectedDraw);
+    var shapes = document.getElementsByClassName("drag");
+    for(var i=0;i<shapes.length;i++) {
+      shapes[i].addEventListener("click", selectEventHandler);
+      for(var j=0;j<shapes[i].children.length;j++) {
+        var child = shapes[i].children[j];
+        child.addEventListener('mousedown', mouseDownResize, false);
+      }
+    }
 
-  var loadBtn = document.getElementById("loadBtn");
-  loadBtn.addEventListener("click", loadDraw);
+    loadModal.style.display = "none";
+  }
+
 
   ///////////////////delete//////////////////////////////
 
@@ -68,6 +125,11 @@ window.onload = function () {
 
 /////main event listener for selected item
   canvas.addEventListener("click", select)
+
+  this.addEventListener("mouseup", function () {
+      this.onmousemove = null;
+  });
+
 }
 
 //********************************** end main ONLOAD function **********************************
@@ -197,7 +259,6 @@ function initDrag(e) {
     function stopDrag() {
         draggedItem.removeEventListener('mousemove', dragging);
         draggedItem.removeEventListener('mouseup', stopDrag);
-  //      draggedItem.removeEventListener('mousedown', initDrag);
     }
 }
 
@@ -296,13 +357,7 @@ function saveDraw(){
     console.log(userInput);
   }
 
-function loadDraw(){
-  var loadedDraw = document.getElementById("canvas");
-  loadDraw.innerHTML = JSON.parse(localStorage["myDraw"]);
-  for (var i = 0; i < loadDraw.children.length; i++) {
-      loadDraw.children[i].addEventListener("click", chosen);
-  }
-}
+
 
 
 // *************************COLOR CHANGES PART ***********************************************

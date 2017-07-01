@@ -18,7 +18,7 @@ h2 {
   padding:4px;
   width:960px;
   margin:auto;
-  background-color: #eb4d5c;
+  background-color:#5DA7AE;
   border-radius: 8px;
   z-index:1;
 }
@@ -29,21 +29,18 @@ h2 {
   display: inline-block;
   border-top-left-radius:8px;
   border-top-right-radius:8px;
-  padding:1px;
-  margin:0px 0px -5px 0px;
+  padding:4px;
+  margin:2px 0px -8px 0px;
   background-color: rgba(255,255,255,0.5);
-}
-
-#design {
-  background-color: #FFF;
 }
 
 .toolbar > button {
   color:#fff;
   flex:auto;
   text-align: center;
+  font-size: 0.5em;
   min-width: 80px;
-  height:2em;
+  height:2.4em;
   padding:2px;
   margin:0px 3px 0px 3px;
   border-top-left-radius:8px;
@@ -75,7 +72,7 @@ h2 {
   margin: auto;
   min-width:600px;
   min-height: 600px;
-  background-color: rgba(0,0,0,0.5);
+  background-color:#FFEBBC;
   z-index:99;
 }
 
@@ -105,7 +102,7 @@ h2 {
   margin-top:-10px;
   width:20px;
   height:20px;
-  border:1px solid #fff;
+  border:1px solid #000;
   border-radius: 5px;
 }
 
@@ -117,7 +114,7 @@ h2 {
   margin-top:-10px;
   width:20px;
   height:20px;
-  border:1px solid #fff;
+  border:1px solid #000;
   border-radius: 5px;
 }
 
@@ -129,7 +126,7 @@ h2 {
   bottom:-10px;
   width:20px;
   height:20px;
-  border:1px solid #fff;
+  border:1px solid #000;
   border-radius: 5px;
 }
 
@@ -141,7 +138,7 @@ h2 {
   bottom:-10px;
   width:20px;
   height:20px;
-  border:1px solid #fff;
+  border:1px solid #000;
   border-radius: 5px;
 }
 
@@ -162,9 +159,10 @@ h2 {
   width:70px;
   height:175px;
   flex: auto;
-  z-index:9999;
+  z-index:999;
   position: absolute;
 }
+
 
 /*popup for saving and loading */
 .popup {
@@ -178,11 +176,11 @@ h2 {
   background-color: rgba(0,0,0,0.4);
 }
 
+
+
 #saveDrawBtn {
 color:#000;
-font-size:18px;
-background-color:#a1e9ed ;
-border-radius: 8px;
+
 }
 
 .popup-content {
@@ -198,8 +196,6 @@ border-radius: 8px;
   float: right;
   font-size: 28px;
   font-weight: bold;
-  border:1px solid grey;
-  border-radius: 8px;
 }
 
 .close:hover,
@@ -209,21 +205,23 @@ border-radius: 8px;
   cursor: pointer;
 }
 
+.drawings{
+  width: 100px;
+}
+
 h4{
   background-color: blue;
-  padding:2px;
+  margin-left:5px;
   color:#fff;
 }
 
-
-/*footer*/
 .footer {
   z-index:999;
   text-align: center;
   bottom:0;
-  margin:auto;
+  margin:0px 10px 0px 115px;
   position:fixed;
-  width:100%;
+  width:80%;
   padding:5px;
   background-color: pink;
 }

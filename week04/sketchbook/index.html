@@ -14,13 +14,31 @@
             <button id="colorBtn" type="button" name="color">color</button>
         </div>
         <div class="toolbar">
-              <button id="loadBtn" type="button" name="load">load</button>
+              <button id="loadBtn" type="button" name="loadBtn">load</button>
+                  <div id="loadModal" class="popup">
+                    <div class="popup-content">
+                        <span id="xcloseLoad" class="close">&times;</span>
+                          <h4>Load</h4>
+                          <form>
+                            <label>pick your drawing</label>
+                            <select class="drawings" name="">
+                              <option value=""></option>
+                            </select>
+                            <button type="button" id="loadDrawBtn" name="loadDrawBtn">load</button>
+                          </form>
+                    </div>
+                  </div>
 
               <button id="saveBtn" type="button" name="saveBtn">save</button>
-                  <div id="savePopup" class="popup">
+                  <div id="saveModal" class="popup">
                     <div class="popup-content">
-                        <span id="xclose" class="close">&times;</span>
+                        <span id="xcloseSave" class="close">&times;</span>
                           <h4>Save</h4>
+                          <div class="modal-header">
+                              <div class="modal-body">
+                                <p></p>
+                              </div>
+                          </div>
                           <form>
                             <label>name your draw</label>
                             <input type="text" id="drawName" value="" name="drawName" placeholder="Type in">

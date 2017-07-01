@@ -13,34 +13,34 @@ window.onload = function () {
    for (var i = 0; i < colorTable.length; ++i) {
        colorTable[i].addEventListener("click", changeShapeColor);
    }
-//   
+//
    var deleteButton = document.getElementById("delete-button");
    deleteButton.addEventListener("click", deleteSelected);
-
+//
    var saveButton = document.getElementById("save-button");
    saveButton.addEventListener("click", saveCanvas);
-
+//
 var LoadbButton = document.getElementById("load-button");
    LoadbButton.addEventListener("click", loadCanvas);
-
+//
    var xSaveWindow = document.getElementById("x-button-save");
    xSaveWindow.addEventListener("click", closeSaveWindow);
-
+//
    var xLoadWindow = document.getElementById("x-button-load");
    xLoadWindow.addEventListener("click", closeLoadWindow);
-
+//
    function randomColor1() {
        return '#' + Math.round(0xffffff * Math.random()).toString(16);
    }
-
+//
    function randomSize() {
        return ((Math.random() * 200) + 50) + "px";
    }
-
+//
    function randomPositionWidth1() {
        return ((Math.random() * (window.innerWidth - 250) + "px"));
    }
-
+//
    function randomPositionTop1() {
        return ((Math.random() * window.innerHeight + "px"));
    }
@@ -162,7 +162,6 @@ var LoadbButton = document.getElementById("load-button");
        });
    }
 
-[9:15]
 function changeSizeTR() {
        event.stopPropagation();
        var shape = this.parentElement;
@@ -184,6 +183,7 @@ function changeSizeTR() {
            this.onmousemove = null;
        });
    }
+   //
    function deleteSelected() {
        var shapes = document.getElementsByClassName("selected");
        var canvas = document.getElementById("canvas");
@@ -202,8 +202,8 @@ function changeSizeTR() {
        var pause = document.getElementById("pause");
        window.classList.toggle("toggleWindow");
        pause.classList.toggle("togglePasue");
-
    }
+
    function closeSaveWindow() {
        var window = document.getElementById("save-window");
        var pause = document.getElementById("pause");
