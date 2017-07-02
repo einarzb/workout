@@ -1,48 +1,56 @@
+/*
+TODO
+force ctrl key
+choose items and move them together
+make clear canvas function  and call it inside load function
+seteventlistener function
+*/
+
 
 window.onload = function () {
   console.log("load me");
   // registerEvents();
   // loadCanvas();
   // clearCanvas();
+  setEventListeners();
   sketchup();
 };
 
+// ***************************** ALL-BUTTONS EVENT LISTENING **********************************
+
+function setEventListeners () {
+    //create shape
+    var rectBtn = document.getElementById("rectMakerBtn");
+    rectBtn.addEventListener("click", createRect);
+
+    var ovalBtn = document.getElementById("ovalMakerBtn");
+    ovalBtn.addEventListener("click", createOval);
+
+    var colorChangeBtn = document.getElementById("colorBtn");
+    colorChangeBtn.addEventListener("click", colorChange);
+
+    var saveDrawBtn = document.getElementById("saveDrawBtn");
+    saveDrawBtn.addEventListener("click", saveDraw);
+}
+
 function sketchup(){
 
-// ***************************** initialze ***********************************************
+// ***************************** ALL-GET ELEMENT ***********************************************
 
   var canvas = document.getElementById("canvas");
   var pallete = document.getElementById('pallete');
   var selected = document.getElementsByClassName("selected");
 
+  var saveModal = document.getElementById("saveModal");
+  var loadModal = document.getElementById('loadModal');
 
-// ***************************** ALL-BUTTONS EVENT LISTENING **********************************
-
-//create shape
-  var rectBtn = document.getElementById("rectMakerBtn");
-  rectBtn.addEventListener("click", createRect);
-
-  var ovalBtn = document.getElementById("ovalMakerBtn");
-  ovalBtn.addEventListener("click", createOval);
-
-  var colorChangeBtn = document.getElementById("colorBtn");
-  colorChangeBtn.addEventListener("click", colorChange);
-
-  // When the user clicks anywhere outside of the modal, close pallete
-  window.onclick = function(event) {
-      if (event.target == colorChangeBtn) {
-          pallete.style.display = "none";
-      }
-  }
+  var saveBtn = document.getElementById("saveBtn");
+  var closeSave = document.getElementById("xcloseSave");
+  var loadBtn = document.getElementById("loadBtn");
+  var closeLoad = document.getElementById("xcloseLoad");
 
 
 ///////////////////////// saving drawing ///////////////////////
-
-  var saveDrawBtn = document.getElementById("saveDrawBtn");
-  saveDrawBtn.addEventListener("click", saveDraw);
-  var saveModal = document.getElementById("saveModal");
-  var saveBtn = document.getElementById("saveBtn");
-  var closeSave = document.getElementById("xcloseSave");
 
   saveBtn.onclick = function() {
       saveModal.style.display = "block";
@@ -81,12 +89,6 @@ function sketchup(){
 
 
 //////////////////loading /////////////////////////////////
-  var loadBtn = document.getElementById("loadBtn");
-  var loadDrawBtn = document.getElementById("loadDrawBtn");
-  loadBtn.addEventListener("click", loadDraw);
-
-    var loadModal = document.getElementById('loadModal');
-    var closeLoad = document.getElementById("xcloseLoad");
 
     loadBtn.onclick = function() {
         loadModal.style.display = "block";
