@@ -9,7 +9,6 @@ seteventlistener function
 
 window.onload = function () {
   console.log("load me");
-  // registerEvents();
   // loadCanvas();
   // clearCanvas();
   setEventListeners();
