@@ -92,6 +92,7 @@ h2 {
   border:1px solid #fff;
   border-radius: 8px;
   position: absolute;
+  background-color: #fff;
 }
 
 /*left top corner*/
@@ -104,6 +105,7 @@ h2 {
   height:20px;
   border:1px solid #000;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 /*right top corner*/
@@ -115,6 +117,7 @@ h2 {
   width:20px;
   height:20px;
   border:1px solid #000;
+  background-color: #fff;
   border-radius: 5px;
 }
 
@@ -128,6 +131,7 @@ h2 {
   height:20px;
   border:1px solid #000;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 /*right bottom corner*/
@@ -139,6 +143,7 @@ h2 {
   width:20px;
   height:20px;
   border:1px solid #000;
+  background-color: #fff;
   border-radius: 5px;
 }
 

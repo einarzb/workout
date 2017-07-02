@@ -1,5 +1,10 @@
 
 window.onload = function () {
+  console.log("load me");
+  sketchup();
+};
+
+function sketchup(){
 
 // ***************************** initialze ***********************************************
 
