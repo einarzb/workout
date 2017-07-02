@@ -31,23 +31,32 @@ function setEventListeners () {
 
     var saveDrawBtn = document.getElementById("saveDrawBtn");
     saveDrawBtn.addEventListener("click", saveDraw);
+
+    var deleteBtn = document.getElementById("deleteBtn");
+    deleteBtn.addEventListener("click", removeShape);
+
+    //delete VIA keyboard
+    window.onkeypress = function(event) {
+         if (event.keyCode == 127) {
+            removeShape();
+         }
+      }
 }
 
 function sketchup(){
 
-// ***************************** ALL-GET ELEMENT ***********************************************
+    var canvas = document.getElementById("canvas");
+    var pallete = document.getElementById('pallete');
+    var selected = document.getElementsByClassName("selected");
 
-  var canvas = document.getElementById("canvas");
-  var pallete = document.getElementById('pallete');
-  var selected = document.getElementsByClassName("selected");
+    //save n load
+    var saveModal = document.getElementById("saveModal");
+    var loadModal = document.getElementById('loadModal');
 
-  var saveModal = document.getElementById("saveModal");
-  var loadModal = document.getElementById('loadModal');
-
-  var saveBtn = document.getElementById("saveBtn");
-  var closeSave = document.getElementById("xcloseSave");
-  var loadBtn = document.getElementById("loadBtn");
-  var closeLoad = document.getElementById("xcloseLoad");
+    var saveBtn = document.getElementById("saveBtn");
+    var closeSave = document.getElementById("xcloseSave");
+    var loadBtn = document.getElementById("loadBtn");
+    var closeLoad = document.getElementById("xcloseLoad");
 
 
 ///////////////////////// saving drawing ///////////////////////
@@ -86,8 +95,6 @@ function sketchup(){
     console.log(userInput);
   }
 
-
-
 //////////////////loading /////////////////////////////////
 
     loadBtn.onclick = function() {
@@ -109,18 +116,6 @@ function sketchup(){
         }
     }
 
-
-  ///////////////////delete//////////////////////////////
-
-  var deleteBtn = document.getElementById("deleteBtn");
-  deleteBtn.addEventListener("click", removeShape);
-
-    //delete VIA keyboard
-    window.onkeypress = function(event) {
-         if (event.keyCode == 127) {
-            removeShape();
-         }
-      }
 
 /////main event listener for selected item
   canvas.addEventListener("click", select)
