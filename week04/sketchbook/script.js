@@ -60,7 +60,6 @@ window.onload = function () {
     localStorage.setItem(userInput, canvas.innerHTML);
     drawingNames.push(userInput);
     localStorage.setItem("drawingNames",JSON.stringify(drawingNames));
-    saveModal.getElementsByClassName("modal-header")[0].style.display="none";
     saveModal.getElementsByClassName("modal-body")[0].children[0].innerHTML = "Saved "+name;
 
     setTimeout(function() {
@@ -88,27 +87,16 @@ window.onload = function () {
         loadModal.style.display = "none";
     }
 
+    function loadDraw(){
+      console.log("load function not working yet");
+    }
+
     // click anywhere outside of the popup, close it
     window.onclick = function(event) {
         if (event.target == loadModal) {
             loadModal.style.display = "none";
         }
     }
-
-  function loadDraw(){
-    var selectedDraw = document.getElementById("loadName").value;
-    canvas.innerHTML = localStorage.getItem(selectedDraw);
-    var shapes = document.getElementsByClassName("drag");
-    for(var i=0;i<shapes.length;i++) {
-      shapes[i].addEventListener("click", selectEventHandler);
-      for(var j=0;j<shapes[i].children.length;j++) {
-        var child = shapes[i].children[j];
-        child.addEventListener('mousedown', mouseDownResize, false);
-      }
-    }
-
-    loadModal.style.display = "none";
-  }
 
 
   ///////////////////delete//////////////////////////////
