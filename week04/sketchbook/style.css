@@ -23,6 +23,8 @@ h2 {
   z-index:1;
 }
 
+
+
 .toolbar {
   width:30%;
   z-index: 9999;
@@ -173,13 +175,17 @@ table {
   max-width: 90px;
   vertical-align: middle;
   text-align: center;
-
 }
 
 table td {
   text-align: center;
   vertical-align: middle;
   padding:0px 3px;
+}
+
+.reveal {
+  display:none;
+  background-color: black;
 }
 
 #pink{

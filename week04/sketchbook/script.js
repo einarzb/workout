@@ -19,7 +19,6 @@ window.onload = function () {
 // ***************************** ALL-BUTTONS EVENT LISTENING **********************************
 
 function setEventListeners () {
-    //create shape
     var rectBtn = document.getElementById("rectMakerBtn");
     rectBtn.addEventListener("click", createRect);
 
@@ -41,13 +40,17 @@ function setEventListeners () {
             removeShape();
          }
       }
+
+    this.addEventListener("mouseup", function(){
+      this.onmousemove = null;
+    });
 }
 
 function sketchup(){
 
     var canvas = document.getElementById("canvas");
-    var pallete = document.getElementById('pallete');
     var selected = document.getElementsByClassName("selected");
+    var colored = document.getElementsByClassName('selected');
 
     //save n load
     var saveModal = document.getElementById("saveModal");
@@ -57,6 +60,16 @@ function sketchup(){
     var closeSave = document.getElementById("xcloseSave");
     var loadBtn = document.getElementById("loadBtn");
     var closeLoad = document.getElementById("xcloseLoad");
+
+    //colors
+    var pallete = document.getElementById('pallete');
+    pallete.classList.toggle("reveal");
+
+    var blackBtn = document.getElementById("black");
+    var redBtn = document.getElementById("red");
+    var greenBtn = document.getElementById("green");
+    var purpleBtn = document.getElementById("purple");
+    var whiteBtn = document.getElementById("white");
 
 
 ///////////////////////// saving drawing ///////////////////////
@@ -333,13 +346,7 @@ function initDrag(e) {
 
     }
 
-this.addEventListener("mouseup", function(){
-  this.onmousemove = null;
-});
-
 }// end resize shape
-
-
 
   // *************************SAVE TO LOCALHOST ***********************************************
 
@@ -358,20 +365,6 @@ function saveDraw(){
 
 //reveals color pallete - change to toggle method
 function colorChange(){
-    if (pallete.style.display === "block") {
-        pallete.style.display = "none";
-    } else {
-      pallete.style.display = "block"
-    }
-
-
-  // When the user clicks anywhere outside of the modal, close pallete
-  // window.onclick = function(event) {
-  //     if (event.target == pallete) {
-  //         pallete.style.display = "none";
-  //     }
-  // }
-
 
 
 var pinkBtn = document.getElementById("pink");
