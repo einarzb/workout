@@ -227,6 +227,53 @@ table td {
   height:18px;
   padding: 0;
 }
+
+/*.color1{
+  border: 1px solid #000;
+  background-color: pink;
+  width:18px;
+  height:18px;
+  padding: 0;
+}
+
+.color2{
+  border: 1px solid #000;
+  background-color: black;
+  width:18px;
+  height:18px;
+  padding: 0;
+}
+
+.color3{
+  border: 1px solid #000;
+  background-color: red;
+  width:18px;
+  height:18px;
+  padding: 0;
+}
+
+.color4{
+  border: 1px solid #000;
+  background-color: green;
+  width:18px;
+  height:18px;
+  padding: 0;
+}
+.color5{
+  border: 1px solid #000;
+  background-color: purple;
+  width:18px;
+  height:18px;
+  padding: 0;
+}
+.color6{
+  border: 1px solid #000;
+  background-color: white;
+  width:18px;
+  height:18px;
+  padding: 0;
+}*/
+
 /*popup for saving and loading */
 .popup {
   display: none;

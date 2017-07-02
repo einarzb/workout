@@ -1,6 +1,9 @@
 
 window.onload = function () {
   console.log("load me");
+  // registerEvents();
+  // loadCanvas();
+  // clearCanvas();
   sketchup();
 };
 
@@ -67,6 +70,7 @@ function sketchup(){
     localStorage.setItem("drawingNames",JSON.stringify(drawingNames));
     saveModal.getElementsByClassName("modal-body")[0].children[0].innerHTML = "Saved "+name;
 
+    //presents comfirmation that element was saved
     setTimeout(function() {
     if(saveModal.style.display == "block")
     saveModal.style.display = "none";
@@ -362,6 +366,7 @@ function colorChange(){
     } else {
       pallete.style.display = "block"
     }
+
 
   // When the user clicks anywhere outside of the modal, close pallete
   // window.onclick = function(event) {
