@@ -371,6 +371,7 @@ function colorChange(){
   // }
 
 
+
 var pinkBtn = document.getElementById("pink");
 pinkBtn.addEventListener("click", makePink);
 
