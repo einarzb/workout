@@ -38,3 +38,21 @@ Object.defineProperty(funcA, "stam", {
 
 funcA.stam; //stam value
 console.log(funcA.stam);
+
+/************************************************************************************************/
+
+//object has 2 properties (array and getter function)
+var obj = {
+  log: ['test'], //an array with 1 string
+
+  get latest() {
+    if (this.log.length == 0) return undefined; //if empty undefined
+    return this.log[this.log.length - 1];
+  }
+}
+
+console.log(obj.latest);
+console.log(obj.log.length); //1
+console.log(this.log[this.log.length - 1]);
+
+ // Will return "test".

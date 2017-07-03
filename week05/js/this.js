@@ -16,7 +16,7 @@ x=5;
 
 function a(){
   var x=9; //function ignores this x!
-  console.log("a:x " + this.x); //this.x != x ==> 5 != 9 
+  console.log("a:x " + this.x); //this.x != x ==> 5 != 9
 }
 
 a(); // call-site => a:x 5
@@ -31,7 +31,38 @@ function a(){
 a(); //5 because of hoisting
 x = 5;
 
-/*******************************************************************/
+/*************************** implicit binding ****************************************/
+//the object is used in the call so its the target of this
+
+function a(){
+  console.log("a:this" + this.x);
+}
+
+var o = {
+  x:"x from o",
+  fa:a
+}
+
+o.fa(); // a:thisx
+
+
+var o = {
+  x:6,
+//Parameter passing is just an implicit assignment,
+//and since we're passing a function, it's an implicit reference assignment
+  f:function(n){
+    return(this.x * n);
+  }
+}
+
+o.f(1) // 6
+o.f(2)//12
+
+var f4 = o.f;
+f4(1); //NaN
+
+
+
 
 
 //this doesnt refer to the function's object or the object
@@ -60,3 +91,30 @@ function funcC(){
 }
 
 funcC(8);
+
+
+///
+var o = {
+  x:"x from o"
+}
+
+function myBind(func,obj){
+
+  var newFunc = function(){
+    func.apply(obj,arguments)
+  }
+  return newFunc;
+}
+
+a(2,3);
+
+var bindedA = myBind(a, o) //a=func o=obj
+bindedA(4,5);
+
+//
+function a (u,v){
+  console.log("a: this " + this.x); //this undefined
+  console.log(u +v); //5
+}
+
+a(2,3)
