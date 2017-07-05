@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>media query</title>
+
+    <style media="screen">
+
+    body{
+      background-color: red;
+      color:black;
+    }
+
+    #colored {
+      width:300px;
+      height:300px;
+      background:blue;
+    }
+
+    #row div {
+      width:25%;
+      height:100px;
+      margin:5px;
+      background-color: green;
+      box-sizing: border-box;
+      float: left;
+      border: 5px solid black;
+    }
+
+
+        /*mobile first*/
+            @media screen and (min-width:400px) {
+                  #colored {
+                      background:red;
+                  }
+            }
+
+    @media screen and (max-width:600px) {
+          body {
+            background-color: green;
+            color:red;
+            font-size: 2em;
+          }
+
+          #row div {
+            width:33%;
+          }
+    }
+
+    @media screen and (max-width:480px) {
+      body {
+        background-color: blue;
+        color:#fff;
+        font-size: 2em;
+      }
+
+      #row div {
+        width:100%;
+      }
+    }
+
+
+    @media screen and (max-width:479px) and (min-width:320px) {
+      body {
+        background-color: pink;
+        color:#fff;
+        font-size: 2em;
+      }
+    }
+
+
+
+    </style>
+  </head>
+  <body>
+<p>thats the different css styling <br>
+media styles must be at the end of the css file!
+</p>
+<div id="row">
+  <div id="colored">
+  </div>
+  </div>
+  <div id="row">
+    <div id="colored">
+    </div>
+    </div>
+    <div id="row">
+      <div id="colored">
+      </div>
+      </div>
+<textarea name="name" rows="25" cols="80">
+
+      @media screen and (max-width:600px) {
+            body {
+              background-color: green;
+              color:red;
+              font-size: 2em;
+            }
+      }
+
+      @media screen and (max-width:480px) {
+        body {
+          background-color: blue;
+          color:#fff;
+          font-size: 2em;
+        }
+      }
+
+      @media screen and (max-width:400px) and (min-width:320px) {
+        body {
+          background-color: pink;
+          color:#fff;
+          font-size: 2em;
+        }
+      }
+</textarea>
+  </body>
+</html>
