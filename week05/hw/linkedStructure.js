@@ -1,4 +1,4 @@
-
+//main IIFE function
 var makeList = function(){
 
     function ListConstructor() {
@@ -6,6 +6,7 @@ var makeList = function(){
         this.tail = null;
     }
 
+    //main object
     var constract = {};
 
     //method of constract object - creates new node
@@ -15,101 +16,101 @@ var makeList = function(){
         this.next = null;
     }
 
-    constract.pushHead = function(data){
+    //method of constract object - push new node to start of list
+    constract.pushStart = function(data){
 
-     var newNode = new this.node(data);
+           var newNode = new this.node(data);
 
-     if(this.head){
-         this.head.prev = newNode;
-         newNode.next = this.head;
-         this.head = newNode;
-     }
-     else {
-         this.head = newNode;
-         this.tail = newNode;
-     }
-}
-
-constract.pushTail = function(data)
-{
-    var newNode = new this.node(data);
-    if(this.head){
-        this.tail.next = newNode;
-        newNode.prev=this.tail;
-        this.tail=newNode;
-            }
-       else
-       {
-        this.head = newNode;
-        this.tail = newNode;
-        }
-   return newNode;
-}
-
-constract.popHead = function(){
-    var temp = this.head;
-    if(this.head){
-        this.head = this.head.next;
-    }
-    return temp;
- }
-
-constract.popTail= function(){
-     var temp=this.tail;
-     if(this.tail){
-         this.tail = this.tail.prev;
-     }
-     return temp;
- }
-
-
- constract.find= function(data, compFunc)
+           //if node is first then -
+           if(this.head){
+               this.head.prev = newNode;
+               newNode.next = this.head;
+               this.head = newNode;
+           }
+           else {
+               this.head = newNode;
+               this.tail = newNode;
+           }
+    };
+    //method of constract object - push new node to end of list
+    constract.pushEnd = function(data)
     {
+        var newNode = new this.node(data);
+        //if node is last then -
         if(this.head){
-        var current =this.head;
-        var countPos=0;
-        while(current.next!=null){
-            if((current.data==data && compFunc==null) || compFunc(current.data,data)){
-                return countPos;
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
                 }
-            current = current.next;
-            ++countPos;
-        }
+           else
+           {
+            this.head = newNode;
+            this.tail = newNode;
             }
-        return -1;
+
+        return newNode;
     }
-
-
- constract.printList = function(){
-        var printString="";
-        var current =this.head;
-        while(current!=null){
-            printString += " " + current.data;
-            current = current.next;
+    //method of constract object - remove new node from start of list
+    constract.popHead = function(){
+        //save first node in temp
+        var temp = this.head;
+        //do the skip over
+        if(this.head){
+            this.head = this.head.next;
         }
-        console.log(printString);
-    }
 
+        return temp;
+     }
 
+    //method of constract object - remove new node from end of list
+    constract.popTail= function(){
+      //save end node in temp
+         var temp = this.tail;
+         // do the skip over
+         if(this.tail){
+             this.tail = this.tail.prev;
+         }
+         return temp;
+     }
+
+  //method of constract object - find node and compare it's data
+     constract.findNode = function(data, compFunc){
+
+        if(this.head) {
+            var current = this.head;
+            var counter = 0;
+
+            while(current.next != null) {
+                if((current.data == data && compFunc == null) || compFunc(current.data,data)){
+                    return countPos;
+                    }
+            current = current.next;
+            counter++;
+            }
+        }
+
+        return -1;
+      }
+    //assign prototype
     ListConstructor.prototype = constract;
+
     return ListConstructor;
+  }();
 
+    //rockenroll
+    var mylist = new makeList();
 
-}();
+    //tests
+    mylist.pushStart(5);
+    mylist.pushStart(1);
 
+    mylist.pushEnd(11);
+    mylist.pushEnd(52);
+    
+    mylist.printList(12);
 
-    var list = new makeList();
-    list.pushTail(16);
-    list.pushTail(30);
-    list.pushHead(5);
-    list.pushHead(6);
-    list.pushHead(9);
-    list.pushHead(20);
-    list.pushHead(8);
-    list.printList();
-    list.popHead();
-    list.printList();
-    list.popTail();
-    list.printList();
-    console.log(list.find(30));
-    console.log(list.find(16));
+    mylist.popHead();
+    mylist.printList();
+    mylist.popTail();
+    mylist.printList();
+    console.log(list.findNode(12));

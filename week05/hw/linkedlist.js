@@ -1,15 +1,26 @@
 
-(function makeList(){
+(function makeListConstructor(data){
+  console.log("im making Constructor function for lists");
+  this.data = data;
+  console.log(data);
+  // function ListConstrucor(data) {
+  //   this.data = data;
+  //   console.log("im inside Constructor function");
+  // }
+}(list));
 
-console.log("einar");
- }());
+
+var list = New makeConstructor("list");
+
+
+// var List = new ListConstrucor("im data");
 //
 //
-//  var List = function LinkedList() {
+//   var List = function makeConstructor(){
+//
 //   this._length = 0; //size of list
 //   this.head = null; //first node in list
 //   this.tail = null; //last node in list
-// }
 //
 // function Node(data) {
 //   this.data = data;
@@ -99,3 +110,8 @@ console.log("einar");
 //   }
 //   currentNode.next = currentNode.next.next;
 // };
+// }
+//
+//
+//
+//
