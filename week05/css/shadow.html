@@ -30,19 +30,55 @@
         box-shadow: -1px -1px 19px 5px #666;
       }
 
-      div {
+
+      .gradient {
+        width: 150px;
+        height:150px;
+        margin:30px auto;
+        background-color: #ccc;
+      }
+
+      .gradient:hover {
+        width: 150px;
+        height:150px;
+        margin:30px auto;
+        background-image:linear-gradient(red, black, red);
+      }
+
+      .gradient2 {
+        width: 150px;
+        height:150px;
+        margin:30px auto;
+        background-image:linear-gradient(to right, red, black, red);
+      }
+
+      .gradient3 {
+        width: 150px;
+        height:150px;
+        margin:30px auto;
+        background-image:linear-gradient(to left, green 0%, black 20%, red 80%, yellow 100%);
+      }
+
+
+      .box {
         background-color: green;
         width: 150px;
-        height:50px;
+        height:250px;
         margin:50px;
         box-shadow: 4px 4px 3px #666;
+        background-image:linear-gradient(45deg, green 0%, black 20%, red 80%, #ff03ff 100%);
+
       }
+
 
     </style>
   </head>
   <body>
     <h1>yoyoyoyo</h1>
     <h1>totototototo</h1>
-    <div></div>
+    <div class="box"></div>
+    <div class="gradient"></div>
+    <div class="gradient2"></div>
+    <div class="gradient3"></div>
   </body>
 </html>
