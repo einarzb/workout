@@ -3,7 +3,7 @@ TODO
 force ctrl key
 choose items and move them together
 make clear canvas function  and call it inside load function
-seteventlistener function
+
 */
 
 
@@ -233,7 +233,9 @@ function select(e) {
 
 function initDrag(e) {
     //initial
-    var draggedItem = this;
+    var draggedItem = this; //current target
+
+
     //calc position (mouse - object)
     var moveX = e.clientX - draggedItem.offsetLeft;
     var moveY = e.clientY - draggedItem.offsetTop;

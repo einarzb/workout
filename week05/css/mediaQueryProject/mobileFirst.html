@@ -31,7 +31,6 @@
            }
 
            .header nav {
-             clear: both;
              font-weight: bold;
            }
 
@@ -98,7 +97,6 @@
           margin-top: 40px;
           padding-right: 10px;
           position:relative;
-          float:right;
           direction: ltr;
           vertical-align: bottom;
         }
@@ -106,15 +104,9 @@
 
       .header nav > ul > li {
         list-style: none;
-        display: inline-block;
         padding:5px;
         border-right: 2px solid grey;
         color:#000;
-      }
-
-
-      .header nav > ul > li:last-child{
-        border:none;
       }
 
       .header nav > ul > li:hover {
@@ -124,6 +116,10 @@
         border-right: 2px solid grey;
         background-color: grey;
         color:#fff;
+      }
+
+      .header nav > ul > li:last-child{
+        border:none;
       }
 
       .main, .sidebar, footer {
