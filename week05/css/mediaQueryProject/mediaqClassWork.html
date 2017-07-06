@@ -27,8 +27,11 @@
         }
 
       .header nav {
-        margin-top: 40px;
+        margin:0px 10px;
         float:right;
+      }
+      .header nav ul {
+        padding:0;
       }
 
       .header nav > ul > li {
@@ -134,8 +137,9 @@ mobile version
         padding: 0;
       }
 
+      /*float none is != clear both */
       .header nav {
-        clear: both;
+        float:none;
         text-align: center;
         font-weight: bold;
       }
@@ -144,8 +148,6 @@ mobile version
       text-align: center;
       background-color: #EFEFEF;
       margin-bottom:5px;
-      width:640px;
-      margin-left:27%;
       list-style: none;
       display:block;
       border:none;
