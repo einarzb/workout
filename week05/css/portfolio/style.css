@@ -22,10 +22,21 @@ a {
   box-shadow: 5px 5px 30px #000;
 }
 
+#projects {
+  position: relative;
+  background-size: cover;
+  margin:0;
+  padding:0;
+  height:800px;
+  background-color: red;
+  box-shadow: 5px 5px 30px #000;
+}
+
 nav {
-  font-size:1.2em;
+  z-index:9999;
   color:#000;
   opacity: 0.8;
+  height:60px;
   width:100%;
   position:fixed;
   background-color: #fff;
