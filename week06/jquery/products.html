@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Oswald');
+
+      body{
+        font-family: 'Oswald', sans-serif;
+        margin:0;
+        padding:0;
+      }
+
+      h1 {
+        margin:auto;
+        text-align: center
+      }
+
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width:960px;
+        margin: auto;
+      }
+
+      li {
+        box-shadow: 5px 5px 10px #000;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.43);
+        border: 2px solid #FFF;
+        padding: 0;
+        text-align: center;
+        margin-top: 12px;
+        transition: all .3s;
+        height: 210px;
+        width: 300px;
+        border:2px solid black;
+      }
+
+      li p {
+        position: absolute;
+        margin-left: -120px;
+        float: left;
+        margin-top:180px;
+        color:red;
+      }
+
+      h4 {
+        color:#000;
+        position:relative;
+        padding-top:120px;
+      }
+/*
+      .productImg img{
+        margin-left: 20px;
+        margin-top: 20px;
+        display: flex;
+        width:150px;
+        height:100px;
+      }
+
+    .price {
+      margin:0;
+      background-color: #fff;
+      border:2px solid red;
+      color:red;
+      }*/
+
+
+    </style>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready( function() {
+        var products = [
+              {
+                "name": "Juice - Ocean Spray Cranberry",
+                "price": 68
+              },
+              {
+                "name": "Rye Special Old",
+                "price": 38
+              }, {
+                "name": "Salmon - Atlantic, Skin On",
+                "price": 92,
+                "image":"https://thumb1.shutterstock.com/display_pic_with_logo/2615302/287243993/stock-photo-fresh-salmon-fillet-on-isolated-white-287243993.jpg"
+              }, {
+                "name": "Bar - Granola Trail Mix Fruit Nut",
+                "price": 8
+              }, {
+                "name": "Flour - All Purpose",
+                "price": 86
+              }, {
+                "name": "Butter Sweet",
+                "price": 93
+              }, {
+                "name": "Sugar - Monocystal / Rock",
+                "price": 98
+              }, {
+                "name": "Ocean Spray - Ruby Red",
+                "price": 87
+              }, {
+                "name": "Mix Pina Colada",
+                "price": 99
+              }, {
+                "name": "Cookies - Oreo, 4 Pack",
+                "price": 76
+              }, {
+                "name": "Mayonnaise",
+                "price": 67
+              }, {
+                "name": "Turnip - White, Organic",
+                "price": 80
+              }, {
+                "name": "Bread - Dark Rye",
+                "price": 17
+              }, {
+                "name": "Noodles - Cellophane, Thin",
+                "price": 8
+              }, {
+                "name": "Crab - Dungeness, Whole, live",
+                "price": 47
+              }, {
+                "name": "Flour - Corn, Fine",
+                "price": 40
+              }, {
+                "name": "Crab - Blue, Frozen",
+                "price": 37
+              }, {
+                "name": "Wine - Conde De Valdemar",
+                "price": 93
+              }, {
+                "name": "Wine - Winzer Krems Gruner",
+                "price": 33
+              }, {
+                "name": "Fudge - Chocolate Fudge",
+                "price": 25
+              }];
+
+              // var product = products[2].name;
+              // var price = products[2].price + "$";
+              // var productImg = products[2].image;
+
+              // for (var i = 0; i < products.length; i++) {
+              //     product = products[i].name;
+              //     price = products[i].price + "$";
+              //     //append product to container
+              //     $('<h4>' + product + '</h4>').appendTo($(".shoppingcart div"));
+              //     $('<span>' + price + '</span>').appendTo($(".shoppingcart div"));
+              //     // $('<img src=' + productImg + '>').appendTo($(".productImg"));
+              // }
+
+              var container = $("#container");
+                 for (var i = 0; i < products.length; ++i) {
+                       var name = products[i].name;
+                       var price = products[i].price;
+                       var image = products[i].image;
+
+                        $('<li>').html('<h4>' + name + '</h4>' + '<p>' + '$' + price + ".00" + '</p>').appendTo('#container');
+                      //  $('<li>').html(name + price + '$').appendTo('#container');
+                       //     $('<h4>' + product + '</h4>').appendTo($(".shoppingcart div"));
+
+                      //  $('<li>').html(name + ', ' + price + '$').appendTo('#container');
+                      //  $('<img src=' + productImg + '>').appendTo($(".productImg"));
+                  }
+              // var calc =
+              var sum = products[2].price; //this.price
+              var total = $('#total').append(sum + '$');
+
+              // $('span').wrap('<b>');
+              // var newSpan = $('span').clone();
+              // $('div').append(newSpan);
+
+              $('li').click( function() {
+                  $(this).remove();
+                });
+
+              //scroll
+              // $(window).scroll(function(event){
+              //   console.log("yoyoy");
+              //   console.log(window.pageXOffset);
+              // });
+
+              $(document).ready(function(){
+                var animated = $('#animated');
+                animated.animate({width:200, height:150}, 2000);
+              })
+
+            });
+      </script>
+
+
+    <h1>shopping cart -- total: <span id="total"></span>
+</h1>
+<div class="main">
+  <!-- <ul id="container">
+</ul> -->
+</div>
+<div id="container"></div>
+
+    <!-- <div class="main">
+    <div class="shoppingcart">
+      <div>
+                <span class="price"></span>
+                <span class="productImg"></span>
+      </div>
+     </div>
+    </div> -->
+</body>
+</html>

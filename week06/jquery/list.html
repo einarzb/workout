@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>list</title>
+  </head>
+  <body>
+
+    <div class="item">
+        <ul class="top-ol"> this is nested lists:
+          <li>1</li>
+          <li>2
+            <ul id="inner">
+              <li >4
+                <ul id="inner2">
+                    <li class="pivot">a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li class="untilHere">d</li>
+                    <li>last child</li>
+               </ul>
+             </li>
+              <li class="pivot">5</li>
+              <li>6</li>
+              <li>last child</li>
+           </ul>
+        </li>
+        <li>last child</li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+      var pivot = $('.pivot');
+      pivot.css({backgroundColor:'yellow'});
+      $('li').parent('#inner2').css({backgroundColor:'red'});
+      alert(pivot.parents().length); //8
+
+      var htmlTags = '';
+
+      pivot.parents().each(function(){
+      //every parent in doc is THIS
+      htmlTags += this.tagName + '\n';
+      });
+      alert(htmlTags);
+      pivot.nextAll().css({color:'blue'});
+      pivot.prev().css({color:'green'});
+      pivot.next().css({color:'pink'});
+      pivot.nextUntil('.untilHere').css({backgroundColor:'purple'});
+      pivot.siblings().css({fontWeight:'bold'});
+      alert($('#inner').children().length); //5
+
+      var htmlTags = '';
+      $('.top-ol').find('*').each(function(index,elem){
+        htmlTags += elem.tagName + '\n';
+      });
+      alert(htmlTags);
+
+    </script>
+  </body>
+</html>
